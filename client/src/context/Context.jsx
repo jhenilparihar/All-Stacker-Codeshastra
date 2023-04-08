@@ -39,3 +39,13 @@ export const getAccountAddress = async () => {
   console.log(netID);
   return accounts[0];
 };
+
+export const addProfile = async (name, email, imageHash) => {
+  const contract = await getContract();
+  await contract.method
+    .addUserProfile(name, email, imageHash)
+    .send({ from: getAccountAddress() })
+    .on("confirmation", () => {
+      window.location.reload();
+    });
+};
