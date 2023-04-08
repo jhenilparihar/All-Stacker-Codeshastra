@@ -34,7 +34,7 @@ const Home = () => {
         </div>
       </div>
         <Swiper
-          slidesPerView={2}
+          slidesPerView={1}
           spaceBetween={30}
           centeredSlides={true}
           pagination={{
@@ -44,12 +44,37 @@ const Home = () => {
           className="mySwiper"
         >
           <SwiperSlide>
-               <Typography sx={{float:'left',marginLeft:"3vw",marginTop:"5vh",fontFamily:'Sacramento',fontSize:"2rem",fontWeight:'bold'}}>Happy Customers!</Typography>
-               
+               <Typography sx={{float:'left',marginLeft:"3vw",marginTop:"5vh",fontFamily:'Sacramento',fontSize:"2rem",fontWeight:'bold'}}>Happy Customers!
+               <Typography sx={{fontSize:"2rem",float:'left',marginTop:"7vh"}}>"</Typography>
+               <Typography sx={{marginTop:"8vh"}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur asperiores doloremque soluta vitae omnis in praesentium. Sit unde magnam rerum.</Typography>
+               <Typography sx={{fontSize:"2rem",float:'right',marginRight:"2vw"}}>"</Typography>
+               </Typography>
+                
           </SwiperSlide>
-          <SwiperSlide>Slide 2</SwiperSlide>
-          <SwiperSlide>Slide 3</SwiperSlide>
-          <SwiperSlide>Slide 4</SwiperSlide>
+          <SwiperSlide>
+               <Typography sx={{float:'left',marginLeft:"3vw",marginTop:"5vh",fontFamily:'Sacramento',fontSize:"2rem",fontWeight:'bold'}}>Happy Customers!
+               <Typography sx={{fontSize:"2rem",float:'left',marginTop:"7vh"}}>"</Typography>
+               <Typography sx={{marginTop:"8vh"}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur asperiores doloremque soluta vitae omnis in praesentium. Sit unde magnam rerum.</Typography>
+               <Typography sx={{fontSize:"2rem",float:'right',marginRight:"2vw"}}>"</Typography>
+               </Typography>
+                
+          </SwiperSlide>
+          <SwiperSlide>
+               <Typography sx={{float:'left',marginLeft:"3vw",marginTop:"5vh",fontFamily:'Sacramento',fontSize:"2rem",fontWeight:'bold'}}>Happy Customers!
+               <Typography sx={{fontSize:"2rem",float:'left',marginTop:"7vh"}}>"</Typography>
+               <Typography sx={{marginTop:"8vh"}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur asperiores doloremque soluta vitae omnis in praesentium. Sit unde magnam rerum.</Typography>
+               <Typography sx={{fontSize:"2rem",float:'right',marginRight:"2vw"}}>"</Typography>
+               </Typography>
+                
+          </SwiperSlide>
+          <SwiperSlide>
+               <Typography sx={{float:'left',marginLeft:"3vw",marginTop:"5vh",fontFamily:'Sacramento',fontSize:"2rem",fontWeight:'bold'}}>Happy Customers!
+               <Typography sx={{fontSize:"2rem",float:'left',marginTop:"7vh"}}>"</Typography>
+               <Typography sx={{marginTop:"8vh"}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur asperiores doloremque soluta vitae omnis in praesentium. Sit unde magnam rerum.</Typography>
+               <Typography sx={{fontSize:"2rem",float:'right',marginRight:"2vw"}}>"</Typography>
+               </Typography>
+                
+          </SwiperSlide>
         </Swiper>
 
 
