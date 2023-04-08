@@ -112,3 +112,14 @@ export const getAllProfile = async () => {
   }
   return allProfile;
 };
+
+export const buyProduct = async (productId, price) => {
+  const contract = await getContract();
+  const account = await getAccountAddress();
+  await contract.methods
+    .placeOrderUsingMoney(productId, 5)
+    .send({ from: account, value: price })
+    .on("confirmation", () => {
+      window.location.reload();
+    });
+};

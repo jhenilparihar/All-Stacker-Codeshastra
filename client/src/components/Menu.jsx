@@ -7,17 +7,23 @@ import StarIcon from "@mui/icons-material/Star";
 import { motion } from "framer-motion";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { getProduct } from "../context/Context";
+import { buyProduct } from "../context/Context";
 
-const Menu = () => {
+const Menu = ({ setLoading }) => {
   useEffect(() => {
     const getProducts = async () => {
       const _product = await getProduct();
       setProduct(_product);
-      console.log(_product)
-      console.log(_product[0].productImage)
+      console.log(_product);
+      console.log(_product[0].productImage);
     };
     getProducts();
   }, []);
+
+  const _buyProduct = async (id, price) => {
+    setLoading();
+    await buyProduct(id, price);
+  };
 
   const [product, setProduct] = useState();
 
@@ -150,11 +156,19 @@ const Menu = () => {
                               marginTop: "8.5vh",
                             }}
                           >
-                            {window.web3.utils.fromWei(product[i].price.toString())}
+                            {window.web3.utils.fromWei(
+                              product[i].price.toString()
+                            )}
                           </Typography>
                         </Grid>
                         <Grid item xs={6}>
                           <Button
+                            onClick={() =>
+                              _buyProduct(
+                                product[i].productId,
+                                product[i].price
+                              )
+                            }
                             variant="contained"
                             sx={{
                               marginTop: "8.5vh",
@@ -177,10 +191,12 @@ const Menu = () => {
               );
             })}
           </Grid>
-          
-          </>:<><div>{console.log("hi")}</div></>}
-         
-      
+        </>
+      ) : (
+        <>
+          <div>{console.log("hi")}</div>
+        </>
+      )}
     </div>
   );
 };
