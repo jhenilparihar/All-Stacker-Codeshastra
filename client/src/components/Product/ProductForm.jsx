@@ -99,17 +99,23 @@ class ProductForm extends Component {
           <div className="im1"></div>
           <div className="im2"></div>
           <div className="fields">
-            <span>Image</span>
-            <input type="file" onChange={this.onUpload} />
-            <span>name</span>
+          
+          <div class="prof-img setting_image">
+                      <img src={this.state.fileUrl} alt="" />
+                      <input  type="file" onChange={this.onUpload} />
+                    </div>
+            
+            <span class="sp">Name</span>
             <input
+            class="common-in"
               type="text"
               placeholder="Name"
               value={this.state.ProductName}
               onChange={(e) => this.setState({ ProductName: e.target.value })}
             />
-            <span>Price</span>
+            <span class="sp">Price</span>
             <input
+            class="common-in"
               type="Number"
               value={this.state.Price}
               placeholder="Price"
@@ -121,9 +127,13 @@ class ProductForm extends Component {
               name="des"
               rows="4"
               cols="60"
+              class="tarea"
               placeholder="Description"
               onChange={(e) => this.setState({ Description: e.target.value })}
             ></textarea>
+             <div className="bn-div">
+            <button class="common-sb">Add</button>
+            </div>
             <button onClick={() => this.SubmitHandle()}>Add</button>
           </div>
         </div>
