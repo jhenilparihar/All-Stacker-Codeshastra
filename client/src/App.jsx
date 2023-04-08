@@ -7,6 +7,8 @@ import {
 } from "./context/Context";
 import { getAccountAddress } from "./context/Context";
 import "./App.css";
+import Chat from "./components/Chat";
+import Menu from "./components/Menu";
 import Navbar from "./components/Navbar";
 import ConnectToMetamask from "./components/ConnectToMetamask";
 import Loading from "./components/Loading";
@@ -50,7 +52,6 @@ class App extends Component {
         ) : this.state.loading ? (
           <Loading />
         ) : (
-          // <h1 className="text-3xl font-bold underline">Hello world!</h1>
           <>
           <BrowserRouter>
               <Routes>
