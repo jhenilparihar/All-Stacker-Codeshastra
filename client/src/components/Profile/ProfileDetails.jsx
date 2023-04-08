@@ -23,7 +23,7 @@ class ProfileDetails extends Component {
           <div className="inner-profile">
             <div className="upper-profile">
               <div className="u1">
-                <div className="prof-img">
+                <div className="prof-img profile_image">
                   <img src={this.state.profile.profileImage} alt="" />
                 </div>
                 <h1>Hi, {this.state.profile.name}</h1>

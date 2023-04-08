@@ -85,3 +85,30 @@ export const getProduct = async () => {
   }
   return allProduct;
 };
+
+export const updatePoints = async (points) => {
+  const contract = await getContract();
+  const account = await getAccountAddress();
+  await contract.methods
+    .updateRewards(points)
+    .send({ from: account })
+    .on("confirmation", () => {
+      window.location.reload();
+    });
+};
+
+export const getAllProfile = async () => {
+  const contract = await getContract();
+  const count = await contract.methods.userCount().call();
+  let allProfile = [];
+  for (var i = 1; i <= count; i++) {
+    const walletAddress = await contract.methods.allUsersAddress(i).call();
+    const profile = await contract.methods.allUsers(walletAddress).call();
+    allProfile.push({
+      name: profile.name,
+      image: profile.profileImage,
+      tokens: profile.pointsBalance,
+    });
+  }
+  return allProfile;
+};
