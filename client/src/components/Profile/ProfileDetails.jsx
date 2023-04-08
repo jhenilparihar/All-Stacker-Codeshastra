@@ -34,11 +34,39 @@ class ProfileDetails extends Component {
                 <h1>Tokens</h1>
                 <h2>{this.state.profile.pointsBalance}</h2>
               </div>
+              <div className="score">
+                <div className="m-token"></div>
+                <div className="m-token"></div>
+                <div className="m-token"></div>
+              </div>
             </div>
-            <div className="middle-profile">
+            {/* <div className="middle-profile">
               <div className="middle-div">
                 <h1>You don't have any supporters yet</h1>
                 <h2>Share your page with your audience to get started.</h2>
+              </div>
+            </div> */}
+            <div className="middle-profile">
+              <div className="middle-div">
+                <div className="minn">
+                    <div className="mg">
+                    <div class="medal--gold"></div>
+                    <h3 class="req">Min. req 10$</h3>
+                    <div className="redeem"> Redeem</div>
+                    </div>
+                    <div className="ms">
+                    <div class="medal--silver"></div>
+                    <h3 class="req">Min. req 10$</h3>
+                    <div className="redeem"> Redeem</div>
+                    </div>
+                    <div className="mb">
+                    <div class="medal--bronze"></div>
+                    <h3 class="req">Min. req 10$</h3>
+                    <div className="redeem"> Redeem</div>
+                    </div>
+
+                </div>
+                 
               </div>
             </div>
             <h1 class="more">More ways to Earn</h1>
