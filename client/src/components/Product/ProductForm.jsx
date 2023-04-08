@@ -107,7 +107,7 @@ class ProductForm extends Component {
             
             <span class="sp">Name</span>
             <input
-            class="common-in"
+              class="common-in"
               type="text"
               placeholder="Name"
               value={this.state.ProductName}
@@ -130,10 +130,11 @@ class ProductForm extends Component {
               placeholder="Description"
               onChange={(e) => this.setState({ Description: e.target.value })}
             ></textarea>
-             <div className="bn-div">
-            <button class="common-sb">Add</button>
+            <div className="bn-div">
+              <button onClick={() => this.SubmitHandle()} class="common-sb">
+                Add
+              </button>
             </div>
-            <button onClick={() => this.SubmitHandle()}>Add</button>
           </div>
         </div>
       </div>

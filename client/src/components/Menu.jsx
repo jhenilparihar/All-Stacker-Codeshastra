@@ -7,35 +7,46 @@ import StarIcon from "@mui/icons-material/Star";
 import { motion } from "framer-motion";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { getProduct } from "../context/Context";
+import { buyProduct } from "../context/Context";
 
-const Menu = () => {
+const Menu = ({ setLoading }) => {
   useEffect(() => {
     const getProducts = async () => {
       const _product = await getProduct();
       setProduct(_product);
+      console.log(_product);
+      console.log(_product[0].productImage);
     };
     getProducts();
   }, []);
+
+  const _buyProduct = async (id, price) => {
+    setLoading();
+    await buyProduct(id, price);
+  };
 
   const [product, setProduct] = useState();
 
   return (
     <div>
+      <Typography
+        sx={{
+          fontSize: "45px",
+          color: "#563300",
+          fontWeight: "bold",
+          paddingTop: "9vh",
+          fontFamily: "Sacramento",
+        }}
+      >
+        Order Now!
+      </Typography>
       {product ? (
         <>
-          <Typography
-            sx={{
-              fontSize: "45px",
-              color: "#563300",
-              fontWeight: "bold",
-              paddingTop: "9vh",
-              fontFamily: "Sacramento",
-            }}
+          <Grid
+            container
+            sx={{ margin: "1vw 0vw 1vw 3vw", display: "inline-flex" }}
           >
-            Order Now!
-          </Typography>
-          <Grid container sx={{ margin: "1vw", display: "inline-flex" }}>
-            {product.map((product) => {
+            {product.map((e, i) => {
               return (
                 <Grid
                   component={motion.div}
@@ -52,7 +63,8 @@ const Menu = () => {
                     height: "35vh",
                     maxWidth: "30vw",
                     borderRadius: "25px",
-                    marginRight: "2vw",
+                    marginRight: "1.5vw",
+                    marginBottom: "2vw",
                     boxShadow:
                       "-5px -5px 9px rgba(255,255,255,0.45), 5px 5px 9px rgba(94,104,121,0.3)",
                     "&:hover": {
@@ -73,7 +85,7 @@ const Menu = () => {
                       }}
                     >
                       <img
-                        src={Coffee}
+                        src={product[i].productImage}
                         style={{
                           height: "110px",
                           width: "6vw",
@@ -110,7 +122,7 @@ const Menu = () => {
                               marginLeft: "1vw",
                             }}
                           >
-                            {product.name}
+                            {product[i].name}
                           </Typography>
                         </Grid>
                         <Grid item xs={12}>
@@ -135,8 +147,7 @@ const Menu = () => {
                               marginTop: "1vh",
                             }}
                           >
-                            "Looks Cute" Coffee With A Biased Milk To Milk Foam
-                            Ratio...
+                            {product[i].productDescription}
                           </Typography>
                         </Grid>
                         <Grid item xs={6}>
@@ -148,11 +159,19 @@ const Menu = () => {
                               marginTop: "8.5vh",
                             }}
                           >
-                            Rs 375.45
+                            {window.web3.utils.fromWei(
+                              product[i].price.toString()
+                            )}
                           </Typography>
                         </Grid>
                         <Grid item xs={6}>
                           <Button
+                            onClick={() =>
+                              _buyProduct(
+                                product[i].productId,
+                                product[i].price
+                              )
+                            }
                             variant="contained"
                             sx={{
                               marginTop: "8.5vh",
@@ -176,7 +195,11 @@ const Menu = () => {
             })}
           </Grid>
         </>
-      ) : null}
+      ) : (
+        <>
+          <div>{console.log("hi")}</div>
+        </>
+      )}
     </div>
   );
 };

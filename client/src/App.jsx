@@ -24,8 +24,8 @@ import ProfileDetails from "./components/Profile/ProfileDetails";
 import Model from "./components/model";
 import Games from "./components/Games";
 import Quiz from "./components/Quiz/Quiz";
+import Admin from "./components/Admin/Admin";
 import NftForm from "./components/NFT/NftForm";
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -83,13 +83,20 @@ class App extends Component {
                   />
                   <Route path="/nftfrom" element={<NftForm />} />
                   <Route path="/leader" element={<Leaderboard />} />
-                  <Route path="/menu" element={<Menu />} />
+                  <Route
+                    path="/menu"
+                    element={<Menu setLoading={this.setLoading} />}
+                  />
                   <Route path="/model" element={<Model />} />
                   <Route path="/events" element={<Events />} />
                   <Route path="/offer-form" element={<Offer />} />
                   <Route path="/ProfileDetails" element={<ProfileDetails />} />
-                  <Route path="/games" element={<Games />} />
+                  <Route
+                    path="/games"
+                    element={<Games setLoading={this.setLoading} />}
+                  />
                   <Route path="/quiz" element={<Quiz />} />
+                  <Route path="/admin" element={<Admin/>} />
                 </Route>
               </Routes>
             </BrowserRouter>
