@@ -36,7 +36,7 @@ const Menu = () => {
           </Typography>
           {product ? <>
             {console.log("hii")}
-            <Grid container sx={{ margin: "1vw", display: "inline-flex" }}>
+            <Grid container sx={{ margin: "1vw 0vw 1vw 3vw", display: "inline-flex" }}>
             {product.map((e,i) => {
               return (
                 <Grid
@@ -54,7 +54,8 @@ const Menu = () => {
                     height: "35vh",
                     maxWidth: "30vw",
                     borderRadius: "25px",
-                    marginRight: "2vw",
+                    marginRight: "1.5vw",
+                    marginBottom: "2vw",
                     boxShadow:
                       "-5px -5px 9px rgba(255,255,255,0.45), 5px 5px 9px rgba(94,104,121,0.3)",
                     "&:hover": {
