@@ -12,7 +12,7 @@
     justify-content: center;
     text-align: center;
     align-items: center;
-    
+    margin-top: 70px;
 }
 .im1{
     position: absolute;
@@ -87,4 +87,8 @@ textarea, .tarea{
     margin: 10px 0 0 0;
     border-radius: 15px;
     padding: 10px;
+}
+.nft-in{
+    margin-bottom: 10px;
+
 }
