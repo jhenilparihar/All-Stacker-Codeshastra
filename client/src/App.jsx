@@ -17,6 +17,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
+import Leaderboard from "./components/Leaderboard";
 
 class App extends Component {
   constructor(props) {
@@ -62,6 +63,13 @@ class App extends Component {
                     />
                   }
                 >
+                  <Route
+                  path="leader"
+                  element={
+                    <Leaderboard
+                    />
+                  }
+                ></Route>
                   <Route index element={<h1>Home</h1>} />
                   <Route
                     path="marketplace"
