@@ -16,6 +16,8 @@ import Leaderboard from "./components/Leaderboard";
 import Dashboard from "./components/Dashboard/Dashboard";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Landing/Home";
+import ProfileForm from "./components/Profile/ProfileForm";
+import ProductForm from "./components/Product/ProductForm";
 
 class App extends Component {
   constructor(props) {
@@ -58,8 +60,21 @@ class App extends Component {
               <Routes>
                  
                 <Route path="/" element={<Navbar />}>
-                  <Route index element={<Home />} />
+                  <Route index element={<Home />} />                  
                   <Route path="dashboard" element={<Dashboard />} />
+                  <Route
+                    path="/create-profile"
+                    element={
+                      <ProfileForm />
+                    }
+                  />
+                  <Route
+                    path="/add-products"
+                    element={
+                      <ProductForm />
+                    }
+                  />
+                </Route>
                    <Route
                   path="leader"
                   element={
