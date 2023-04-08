@@ -1,172 +1,172 @@
-.prof-inner{
-    width: 500px;
-    height: 500px;
-    background: #f2f0eb;
-    margin: 0 auto;
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
+.prof-inner {
+  width: 500px;
+  height: 500px;
+  background: #f2f0eb;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
 }
-.prof1{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    
+.prof1 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
-.im1{
-    position: absolute;
-    top: 20;
-    left: 12;
-    width: 50px;
-    height: 50px;
-    background-image: url(https://www.starbucks.in/assets/icon/Group%20566.svg);
-    background-size: cover;
-}
-.im2{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 50px;
-    height: 50px;
-    background-image: url(https://www.starbucks.in/assets/icon/Group45.svg);
+.im1 {
+  position: absolute;
+  top: 20;
+  left: 12;
+  width: 50px;
+  height: 50px;
+  background-image: url(https://www.starbucks.in/assets/icon/Group%20566.svg);
   background-size: cover;
 }
-.fields{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 30px 69px;
-    margin: 40px 0 0 0;
-    margin-top: 112px;
+.im2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background-image: url(https://www.starbucks.in/assets/icon/Group45.svg);
+  background-size: cover;
 }
-.profile-details{
-    width: 100%;
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    padding-bottom: 50px;
+.fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px 69px;
+  margin: 40px 0 0 0;
+  margin-top: 112px;
 }
-.inner-profile{
-    width: 70%;
-    height: 100%;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
+.profile-details {
+  width: 100%;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  padding-bottom: 50px;
 }
-.upper-profile{
-    margin: 10px 0 0 0;
-    width: 100%;
-    height: 300px;
-    /* background-color: antiquewhite; */
-    padding: 40px;
-    font-size: 30px;
-    font-weight: 400;
-    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 15px 0 rgba(0, 0, 0, 0.19);
+.inner-profile {
+  width: 70%;
+  height: 100%;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
-.u1{
-    width: 100%;
-    height: 38%;
-    /* background: red; */
-    position: relative;
-    display: flex;
-    /* border-bottom-width: 2px;
+.upper-profile {
+  margin: 10px 0 0 0;
+  width: 100%;
+  height: 300px;
+  /* background-color: antiquewhite; */
+  padding: 40px;
+  font-size: 30px;
+  font-weight: 400;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 15px 0 rgba(0, 0, 0, 0.19);
+}
+.u1 {
+  width: 100%;
+  height: 38%;
+  /* background: red; */
+  position: relative;
+  display: flex;
+  /* border-bottom-width: 2px;
     border-color: gray; */
 }
-hr{
-    border-top: 1px solid gray;
-  }
-.u2{
-    width: 100%;
-    height: 60%;
-    /* background-color: antiquewhite; */
-    text-align: left;
-    padding: 10px;
+hr {
+  border-top: 1px solid gray;
 }
-.u2 h1{
-    font-size: 29px;
-    font-weight: 600
+.u2 {
+  width: 100%;
+  height: 60%;
+  /* background-color: antiquewhite; */
+  text-align: left;
+  padding: 10px;
 }
-.u2 h2{
-    font-size: 50px;
-    font-weight: 700;
+.u2 h1 {
+  font-size: 29px;
+  font-weight: 600;
 }
-.prof-img{
-    height: 100%;
-    width: 80px;
-    border-radius: 50px;
-    background-color: white;
+.u2 h2 {
+  font-size: 50px;
+  font-weight: 700;
 }
-.u1 h1{
-    margin:30px 0 0 10px;
-    font-size: 20px
+.prof-img {
+  height: 100%;
+  width: 80px;
+  border-radius: 50px;
+  background-color: white;
+  margin-right: 20px;
 }
-.share-prof{
-    position: absolute;
-    right: 0;
-    border-radius: 50px;
-    width: 100px;
-    height: 50%;
-    background-color: black;
-    color: white;
-    font-size: 18px;
-    margin: 20px 0 0 0;
+.prof-img img {
+  height: 100%;
 }
-.middle-profile{
-    margin-top: 20px;
-    width: 100%;
-    height: 200px;
-    padding: 20px;
-    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 15px 0 rgba(0, 0, 0, 0.19);
-
+.u1 h1 {
+  margin: auto 20px;
+  font-size: 20px;
 }
-.middle-div{
-    width:100%;
-    height: 100%;
-    margin: 50px 0 0 0;
-    text-align: center;
-    align-items: center;
-    display: block;
-    
+.share-prof {
+  position: absolute;
+  right: 0;
+  border-radius: 50px;
+  width: 100px;
+  height: 50%;
+  background-color: black;
+  color: white;
+  font-size: 18px;
+  margin: 20px 0;
+  padding: 7px;
 }
-.middle-div h1{
-    font-size: 22px;
-    font-weight: 600;
+.middle-profile {
+  margin-top: 20px;
+  width: 100%;
+  height: 200px;
+  padding: 20px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 15px 0 rgba(0, 0, 0, 0.19);
 }
-.middle-div h2{
-    font-size: 13px;
-    font-weight: 200;
-    color: gray;
+.middle-div {
+  width: 100%;
+  height: 100%;
+  margin: 50px 0 0 0;
+  text-align: center;
+  align-items: center;
+  display: block;
 }
-.more{
-    font-size: 18px;
-    margin: 20px 0;
-    text-align: left;
+.middle-div h1 {
+  font-size: 22px;
+  font-weight: 600;
 }
-.more-div{
-display: flex;
-height: 250px;
+.middle-div h2 {
+  font-size: 13px;
+  font-weight: 200;
+  color: gray;
 }
-.m1{
-    height: 100%;
-    width: 250px;
-    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 15px 0 rgba(0, 0, 0, 0.19);
-    padding: 20px;
-    margin: 10px;
-    display: block;
-    text-align: left;
-
+.more {
+  font-size: 18px;
+  margin: 20px 0;
+  text-align: left;
 }
-.in{
-    margin:50px 0 0 0;
+.more-div {
+  display: flex;
+  height: 250px;
 }
-.m1 h1{
-    font-size: 20px;
+.m1 {
+  height: 100%;
+  width: 250px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 15px 0 rgba(0, 0, 0, 0.19);
+  padding: 20px;
+  margin: 10px;
+  display: block;
+  text-align: left;
 }
-.m1 h2{
-    margin-top: 10px;
-    font-size: 18px;
-    color: gray;
-    font-weight: 100;
+.in {
+  margin: 50px 0 0 0;
 }
-
+.m1 h1 {
+  font-size: 20px;
+}
+.m1 h2 {
+  margin-top: 10px;
+  font-size: 18px;
+  color: gray;
+  font-weight: 100;
+}
