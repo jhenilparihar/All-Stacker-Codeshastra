@@ -23,8 +23,6 @@ const Menu = () => {
 
   return (
     <div>
-      {product ? (
-        <>
           <Typography
             sx={{
               fontSize: "45px",
@@ -36,7 +34,9 @@ const Menu = () => {
           >
             Order Now!
           </Typography>
-          <Grid container sx={{ margin: "1vw", display: "inline-flex" }}>
+          {product ? <>
+            {console.log("hii")}
+            <Grid container sx={{ margin: "1vw", display: "inline-flex" }}>
             {product.map((e,i) => {
               return (
                 <Grid
@@ -176,8 +176,10 @@ const Menu = () => {
               );
             })}
           </Grid>
-        </>
-      ) : null}
+          
+          </>:<><div>{console.log("hi")}</div></>}
+         
+      
     </div>
   );
 };

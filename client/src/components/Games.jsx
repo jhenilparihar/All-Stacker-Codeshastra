@@ -1,13 +1,14 @@
-import { Grid, Typography } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 import React from "react";
 import Paper from "@mui/material/Paper";
 import "../styles/games.css";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 export default function Games() {
  
   let add=0;
   const [a,setA]=useState(0)
   const [token,setToken]=useState(0);
+  const [t,setT]=useState(false)
   const gamble=(e)=>{
     if (e.target && e.target.value !== undefined) {
       console.log(e.target.value);
@@ -16,6 +17,13 @@ export default function Games() {
     }
     
   }
+  useEffect(() => {
+    let b=localStorage.getItem("try");
+    let boolOutput = b == 'true' ? true : false;
+    setT(boolOutput)
+    console.log(boolOutput);
+  }, [])
+  
   const printval=()=>{
     add=0
     let x=Math.random()
@@ -41,6 +49,14 @@ export default function Games() {
     setA(add);
     
   }
+  const accept=()=>{
+    setT(true)
+    localStorage.setItem("try","true")
+  }
+  const tryagain=()=>{
+    setT(false)
+    localStorage.setItem("try","false")
+  }
   return (
     <>
     <br></br>
@@ -64,7 +80,8 @@ export default function Games() {
               </div>
               <br></br>
               <div style={{margin:"50px"}}>
-              <button
+              <Button
+              disabled={t}
               onClick={printval}
               >
                 {/* <svg
@@ -81,10 +98,14 @@ export default function Games() {
                   {/* <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon> */}
                 {/* </svg>{" "} */}
                 Luck
-              </button>
+              </Button>
               <br></br>
               <hr></hr>
               <Typography variant="h5">You won {a} tokens</Typography>
+              <br></br>
+              <hr></hr>
+              <Button onClick={tryagain}>Try again</Button>
+              <Button onClick={accept}>Accept</Button>
               </div>
               <div>
                 <Typography variant="h4"></Typography>
