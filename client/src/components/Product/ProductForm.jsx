@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./prod.css";
+import "./Prod.css";
 import axios from "axios";
 import { Buffer } from "buffer";
 import { addProduct } from "../../context/Context";
@@ -99,11 +99,12 @@ class ProductForm extends Component {
           <div className="im1"></div>
           <div className="im2"></div>
           <div className="fields">
-            <div class="prof-img setting_image">
-              <img src={this.state.fileUrl} alt="" />
-              <input type="file" onChange={this.onUpload} />
-            </div>
-
+          
+          <div class="prof-img setting_image">
+                      <img src={this.state.ProductUrl} alt="" />
+                      <input  type="file" onChange={this.onUpload} />
+                    </div>
+            
             <span class="sp">Name</span>
             <input
               class="common-in"
@@ -114,13 +115,12 @@ class ProductForm extends Component {
             />
             <span class="sp">Price</span>
             <input
-              class="common-in"
-              type="Number"
+            class="common-in"
+              type="number"
               value={this.state.Price}
               placeholder="Price"
               onChange={(e) => this.setState({ Price: e.target.value })}
             />
-
             <textarea
               id="des"
               name="des"
