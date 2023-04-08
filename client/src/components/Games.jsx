@@ -4,13 +4,47 @@ import Paper from "@mui/material/Paper";
 import "../styles/games.css";
 import { useState } from "react";
 export default function Games() {
+ 
+  let add=0;
+  const [a,setA]=useState(0)
   const [token,setToken]=useState(0);
   const gamble=(e)=>{
-      setToken(e.value)
-      console.log(e.value)
+    if (e.target && e.target.value !== undefined) {
+      console.log(e.target.value);
+      setToken(e.target.value);
+      console.log(e.target.value);
+    }
+    
+  }
+  const printval=()=>{
+    add=0
+    let x=Math.random()
+    console.log((x));
+    if(x>0.3 && x<0.5)
+    {
+      add=add+(token/5)
+    }
+    else if(x>0.5 && x<0.9)
+    {
+      add=add+(token/3)
+    }
+    else if(x>0.9)
+    {
+      add=add+(token/2)
+    }
+    else if(x<0.3)
+    {
+      add=add-(token/2)
+    }
+    add=Math.floor(add);
+    console.log(add);
+    setA(add);
+    
   }
   return (
     <>
+    <br></br>
+    <br></br><br></br>
       <Grid container>
         <Grid item md={12}></Grid>
         <br></br>
@@ -24,13 +58,15 @@ export default function Games() {
                   placeholder="Enter how much you want to gamble"
                   name="text"
                   class="input"
+                  style={{width:"110%",marginRight:"20px"}}
                   onChange={gamble}
-                  value={token}
                 />
               </div>
               <br></br>
               <div style={{margin:"50px"}}>
-              <button>
+              <button
+              onClick={printval}
+              >
                 {/* <svg
                   viewBox="0 0 24 24"
                   width="24"
@@ -46,6 +82,9 @@ export default function Games() {
                 {/* </svg>{" "} */}
                 Luck
               </button>
+              <br></br>
+              <hr></hr>
+              <Typography variant="h5">You won {a} tokens</Typography>
               </div>
               <div>
                 <Typography variant="h4"></Typography>
@@ -55,6 +94,7 @@ export default function Games() {
               <p>
                 <Typography variant="h3">Try your Luck</Typography>
               </p>
+
             </div>
           </div>
         </Grid>
