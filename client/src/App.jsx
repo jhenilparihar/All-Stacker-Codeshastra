@@ -12,12 +12,10 @@ import Menu from "./components/Menu";
 import Navbar from "./components/Navbar";
 import ConnectToMetamask from "./components/ConnectToMetamask";
 import Loading from "./components/Loading";
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-} from "react-router-dom";
 import Leaderboard from "./components/Leaderboard";
+import Dashboard from "./components/Dashboard/Dashboard";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./components/Landing/Home";
 
 class App extends Component {
   constructor(props) {
@@ -48,35 +46,28 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {!this.state.metamaskConnected ? (
+        {this.state.loading ? (
+          <Loading />
+        ) : !this.state.metamaskConnected ? (
           <ConnectToMetamask connectToMetamask={connectToMetamask} />
         ) : this.state.loading ? (
           <Loading />
         ) : (
           <>
-          <BrowserRouter>
+            <BrowserRouter>
               <Routes>
-                <Route
-                  path="/"
-                  element={
-                    <Navbar
-                    />
-                  }
-                >
-                  <Route
+                 
+                <Route path="/" element={<Navbar />}>
+                  <Route index element={<Home />} />
+                  <Route path="dashboard" element={<Dashboard />} />
+                   <Route
                   path="leader"
                   element={
                     <Leaderboard
                     />
                   }
                 ></Route>
-                  <Route index element={<h1>Home</h1>} />
-                  <Route
-                    path="marketplace"
-                    element={
-                      <h1>Explore</h1>
-                    }
-                  /></Route>
+                </Route>
               </Routes>
             </BrowserRouter>
           </>
