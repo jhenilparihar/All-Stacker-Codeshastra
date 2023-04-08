@@ -18,6 +18,8 @@ import {
   Routes,
 } from "react-router-dom";
 import Home from "./components/Landing/Home";
+import ProfileForm from "./components/Profile/ProfileForm";
+import ProductForm from "./components/Product/ProductForm";
 
 class App extends Component {
   constructor(props) {
@@ -56,7 +58,7 @@ class App extends Component {
           <Loading />
         ) : (
           <>
-          <BrowserRouter>
+            <BrowserRouter>
               <Routes>
                 <Route
                   path="/"
@@ -71,7 +73,24 @@ class App extends Component {
                     element={
                       <h1>Explore</h1>
                     }
-                  /></Route>
+                  />
+                  <Route
+                    path="/create-profile"
+                    element={
+                      <ProfileForm />
+                    }
+                  />
+
+                  <Route
+                    path="/add-products"
+                    element={
+                      <ProductForm />
+                    }
+                  />
+                </Route>
+
+
+
               </Routes>
             </BrowserRouter>
           </>

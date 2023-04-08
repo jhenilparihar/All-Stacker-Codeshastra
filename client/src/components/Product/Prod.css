@@ -1,0 +1,42 @@
+.prof-inner{
+    width: 500px;
+    height: 600px;
+    background: #f2f0eb;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.prof1{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    
+}
+.im1{
+    position: absolute;
+    top: 20;
+    left: 12;
+    width: 50px;
+    height: 50px;
+    background-image: url(https://www.starbucks.in/assets/icon/Group%20566.svg);
+    background-size: cover;
+}
+.im2{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background-image: url(https://www.starbucks.in/assets/icon/Group45.svg);
+  background-size: cover;
+}
+.fields{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px 69px;
+    maring: 40px 0 0 0;
+    margin-top: 112px;
+}
