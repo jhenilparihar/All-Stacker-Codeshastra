@@ -10,7 +10,7 @@ const Events = () => {
         <Grid container sx={{marginRight:"2vw"}}>
             <Grid item component={motion.div} 
                whileHover={{
-                 scale: 1.1,
+                 scale: 1,
                  transition: { duration: 0.3 }
                }}
                whileTap={{ scale: 0.9 }} xs={12} lg={12} sx={{margin:"2rem",backgroundColor:"#e8d8d8",
@@ -42,7 +42,7 @@ const Events = () => {
             </Grid>
             <Grid item component={motion.div} 
                whileHover={{
-                 scale: 1.1,
+                 scale: 1,
                  transition: { duration: 0.3 }
                }}
                whileTap={{ scale: 0.9 }} xs={12} lg={12} sx={{margin:"2rem",backgroundColor:"#e8d8d8",

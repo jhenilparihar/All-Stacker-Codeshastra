@@ -10,7 +10,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 const Menu = () => {
   return (
     <div>
-      <Typography sx={{fontSize:"45px",color:"#563300",fontWeight:'bold',paddingTop:"4vh",fontFamily: 'Sacramento'}}>Order Now!</Typography>
+      <Typography sx={{fontSize:"45px",color:"#563300",fontWeight:'bold',paddingTop:"9vh",fontFamily: 'Sacramento'}}>Order Now!</Typography>
       <Grid container sx={{margin:"1vw",display:"inline-flex"}} >
           <Grid component={motion.div} 
                whileHover={{

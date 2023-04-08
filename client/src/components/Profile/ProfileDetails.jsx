@@ -14,9 +14,9 @@ class ProfileDetails extends Component {
 
     render() {
         return (
-            <div className="profile-details">
+            <div className="profile-details" style={{marginTop:"10vh"}}>
                 <div className="inner-profile">
-                    <div className="upper-profile">
+                    <div className="upper-profile" >
                         <div className="u1">
                             <div className="prof-img">
                                 

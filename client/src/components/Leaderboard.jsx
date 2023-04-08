@@ -15,7 +15,7 @@ export default function Leaderboard() {
   let a = 10;
   return (
     <>
-      <Grid container spacing={0}>
+      <Grid container spacing={0} sx={{marginTop:"5vh"}}>
         <Grid item md={4}>
           <Grid
             container
