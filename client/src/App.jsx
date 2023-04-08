@@ -22,6 +22,7 @@ import ProductForm from "./components/Product/ProductForm";
 import Offer from "./components/Common/Offer";
 import ProfileDetails from "./components/Profile/ProfileDetails";
 import Games from "./components/Games";
+import Quiz from "./components/Quiz/Quiz";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -63,9 +64,13 @@ class App extends Component {
           <ConnectToMetamask connectToMetamask={connectToMetamask} />
         ) : this.state.loading ? (
           <Loading />
+        ) : !this.state.profileSet ? (
+          <ProfileForm
+            setLoading={() => {
+              this.setState({ loading: true });
+            }}
+          />
         ) : (
-          // ) : !this.state.profileSet ? (
-          //   <ProfileForm setLoading={()=>{this.setState({loading: true})}} />
           <>
             <BrowserRouter>
               <Routes>
@@ -79,6 +84,7 @@ class App extends Component {
                   <Route path="/offer-form" element={<Offer />} />
                   <Route path="/ProfileDetails" element={<ProfileDetails />} />
                   <Route path="/games" element={<Games />} />
+                  <Route path="/quiz" element={<Quiz/>} />
                 </Route>
               </Routes>
             </BrowserRouter>
