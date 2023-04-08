@@ -10,6 +10,7 @@ import "./App.css";
 import Chat from "./components/Chat";
 import Menu from "./components/Menu";
 import Navbar from "./components/Navbar";
+import Events from "./components/Events";git
 import ConnectToMetamask from "./components/ConnectToMetamask";
 import Loading from "./components/Loading";
 import Leaderboard from "./components/Leaderboard";
@@ -65,6 +66,7 @@ class App extends Component {
                   <Route path="/add-products" element={<ProductForm />} />
                   <Route path="/leader" element={<Leaderboard />} />
                   <Route path="/menu" element={<Menu />} />
+                  <Route path="/events" element={<Events />} />
                 </Route>
               </Routes>
             </BrowserRouter>
