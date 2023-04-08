@@ -28,7 +28,6 @@ class App extends Component {
   loadBlockchainData = async () => {
     if (await isMetamaskConnected()) {
       this.setState({ metamaskConnected: true });
-      this.setState({ loading: true });
       const account = await getAccountAddress();
       const contract = await getContract();
       const something = await contract.methods.balanceOf(account).call();
