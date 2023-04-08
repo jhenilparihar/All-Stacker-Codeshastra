@@ -56,6 +56,7 @@ class App extends Component {
     }
     this.setState({ loading: false });
   };
+  setLoading = async () => this.setState({ loading: true });
 
   render() {
     return (
@@ -67,11 +68,7 @@ class App extends Component {
         ) : this.state.loading ? (
           <Loading />
         ) : !this.state.profileSet ? (
-          <ProfileForm
-            setLoading={() => {
-              this.setState({ loading: true });
-            }}
-          />
+          <ProfileForm setLoading={this.setLoading} />
         ) : (
           <>
             <BrowserRouter>
@@ -79,7 +76,10 @@ class App extends Component {
                 <Route path="/" element={<Navbar />}>
                   <Route index element={<Home />} />
                   <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/add-products" element={<ProductForm />} />
+                  <Route
+                    path="/add-products"
+                    element={<ProductForm setLoading={this.setLoading} />}
+                  />
                   <Route path="/leader" element={<Leaderboard />} />
                   <Route path="/menu" element={<Menu />} />
                   <Route path="/model" element={<Model />} />
