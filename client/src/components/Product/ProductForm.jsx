@@ -134,7 +134,7 @@ class ProductForm extends Component {
              <div className="bn-div">
             <button class="common-sb">Add</button>
             </div>
-            <button onClick={() => this.SubmitHandle()}>Add</button>
+            <button onClick={() => this.SubmitHandle()}>Adder</button>
           </div>
         </div>
       </div>

@@ -13,6 +13,8 @@ const Menu = () => {
     const getProducts = async () => {
       const _product = await getProduct();
       setProduct(_product);
+      console.log(_product)
+      console.log(_product[0].productImage)
     };
     getProducts();
   }, []);
@@ -35,7 +37,7 @@ const Menu = () => {
             Order Now!
           </Typography>
           <Grid container sx={{ margin: "1vw", display: "inline-flex" }}>
-            {product.map((product) => {
+            {product.map((e,i) => {
               return (
                 <Grid
                   component={motion.div}
@@ -73,7 +75,7 @@ const Menu = () => {
                       }}
                     >
                       <img
-                        src={Coffee}
+                        src={product[i].productImage}
                         style={{
                           height: "110px",
                           width: "6vw",
@@ -110,7 +112,7 @@ const Menu = () => {
                               marginLeft: "1vw",
                             }}
                           >
-                            {product.name}
+                            {product[i].name}
                           </Typography>
                         </Grid>
                         <Grid item xs={12}>
@@ -135,8 +137,7 @@ const Menu = () => {
                               marginTop: "1vh",
                             }}
                           >
-                            "Looks Cute" Coffee With A Biased Milk To Milk Foam
-                            Ratio...
+                            {product[i].productDescription}
                           </Typography>
                         </Grid>
                         <Grid item xs={6}>
@@ -148,7 +149,7 @@ const Menu = () => {
                               marginTop: "8.5vh",
                             }}
                           >
-                            Rs 375.45
+                            {window.web3.utils.fromWei(product[i].price.toString())}
                           </Typography>
                         </Grid>
                         <Grid item xs={6}>
