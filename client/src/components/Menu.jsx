@@ -29,21 +29,21 @@ const Menu = ({ setLoading }) => {
 
   return (
     <div>
-      <Typography
-        sx={{
-          fontSize: "45px",
-          color: "#563300",
-          fontWeight: "bold",
-          paddingTop: "9vh",
-          fontFamily: "Sacramento",
-        }}
-      >
-        Order Now!
-      </Typography>
-      {product ? (
-        <>
-          <Grid container sx={{ margin: "1vw", display: "inline-flex" }}>
-            {product.map((e, i) => {
+          <Typography
+            sx={{
+              fontSize: "45px",
+              color: "#563300",
+              fontWeight: "bold",
+              paddingTop: "9vh",
+              fontFamily: "Sacramento",
+            }}
+          >
+            Order Now!
+          </Typography>
+          {product ? <>
+            {console.log("hii")}
+            <Grid container sx={{ margin: "1vw 0vw 1vw 3vw", display: "inline-flex" }}>
+            {product.map((e,i) => {
               return (
                 <Grid
                   component={motion.div}
@@ -60,7 +60,8 @@ const Menu = ({ setLoading }) => {
                     height: "35vh",
                     maxWidth: "30vw",
                     borderRadius: "25px",
-                    marginRight: "2vw",
+                    marginRight: "1.5vw",
+                    marginBottom: "2vw",
                     boxShadow:
                       "-5px -5px 9px rgba(255,255,255,0.45), 5px 5px 9px rgba(94,104,121,0.3)",
                     "&:hover": {
