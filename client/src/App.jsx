@@ -82,18 +82,12 @@ class App extends Component {
                   <Route path="/add-products" element={<ProductForm />} />
                   <Route path="/leader" element={<Leaderboard />} />
                   <Route path="/menu" element={<Menu />} />
-            
-                   <Route
-                    path="/model"
-                    element={
-                      <Model />
-                    }
-                  />
+                  <Route path="/model" element={<Model />} />
                   <Route path="/events" element={<Events />} />
                   <Route path="/offer-form" element={<Offer />} />
                   <Route path="/ProfileDetails" element={<ProfileDetails />} />
                   <Route path="/games" element={<Games />} />
-                  <Route path="/quiz" element={<Quiz/>} />
+                  <Route path="/quiz" element={<Quiz />} />
                 </Route>
               </Routes>
             </BrowserRouter>
