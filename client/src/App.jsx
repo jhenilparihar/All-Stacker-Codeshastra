@@ -20,7 +20,8 @@ import {
 import Home from "./components/Landing/Home";
 import ProfileForm from "./components/Profile/ProfileForm";
 import ProductForm from "./components/Product/ProductForm";
-
+import Offer from "./components/Common/Offer";
+import ProfileDetails from "./components/Profile/ProfileDetails";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -85,6 +86,20 @@ class App extends Component {
                     path="/add-products"
                     element={
                       <ProductForm />
+                    }
+                  />
+
+                <Route
+                    path="/offer-form"
+                    element={
+                      <Offer />
+                    }
+                  />
+
+                 <Route
+                    path="/ProfileDetails"
+                    element={
+                      <ProfileDetails />
                     }
                   />
                 </Route>
