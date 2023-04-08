@@ -3,8 +3,11 @@ pragma solidity ^0.8.9;
 
 contract Cafe {
     uint256 couponCount;
+    uint256 userCount;
+    uint256 productCount;
 
     struct User {
+        uint userId;
         string name;
         string email;
         address walletAddress;
@@ -29,19 +32,38 @@ contract Cafe {
 
     struct Produts {
         uint256 productId;
-        string productDescription;
         string name;
         string productImage;
         uint256 price;
+        string productDescription;
         uint256 count;
     }
 
     mapping(address => User) public allUsers;
     mapping(address => bool) public isProfileSet;
     mapping(uint256 => Loyalties) public allLoyalties;
+    mapping(uint256 => Produts) public allProduct;
 
-    function placeOrderUsingMoney(uint256 amount, uint256 pro uint256 rewards) public {
+    function placeOrderUsingMoney(
+        uint256 _productId,
+        uint256 _rewards
+    ) public payable {
+        require(msg.sender != address(0));
+        Produts memory product = allProduct[_productId];
 
+        require(msg.value >= product.price);
+        address payable owner = payable(
+            0x2f8Fa2250012718CB7F66a0b804ee3f367b4BD1c
+        );
+        product.count += 1;
+
+        User storage user = allUsers[msg.sender];
+
+        user.pointsBalance += _rewards;
+
+        owner.transfer(msg.value);
+
+        user.productId.push(_productId);
     }
 
     function addUserProfile(
@@ -51,8 +73,11 @@ contract Cafe {
     ) public {
         require(msg.sender != address(0));
 
+        userCount++;
+
         User storage userprofile = allUsers[msg.sender];
 
+        userprofile.userId = userCount;
         userprofile.name = _name;
         userprofile.walletAddress = msg.sender;
         userprofile.email = _email;
@@ -81,5 +106,24 @@ contract Cafe {
             _details
         );
         allLoyalties[couponCount] = newLoyalty;
+    }
+
+    function addProduct(
+        string memory _name,
+        string memory _productDescription,
+        string memory _productImage,
+        uint256 _price
+    ) public {
+        productCount++;
+        Produts memory newProduct = Produts(
+            productCount,
+            _name,
+            _productImage,
+            _price,
+            _productDescription,
+            0
+        );
+
+        allProduct[productCount] = newProduct;
     }
 }
