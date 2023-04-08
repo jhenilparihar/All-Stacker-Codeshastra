@@ -10,7 +10,7 @@ class ProfileDetails extends Component {
     };
   }
 
-  componentDidMount = async () => {
+componentDidMount = async () => {
     const profile = await getProfile();
     this.setState({ profile: profile });
   };
@@ -18,7 +18,7 @@ class ProfileDetails extends Component {
   render() {
     console.log(this.state.profile);
     return (
-      <div className="profile-details">
+      <div className="profile-details" style={{marginTop:"10vh"}}>
         {this.state.profile ? (
           <div className="inner-profile">
             <div className="upper-profile">
