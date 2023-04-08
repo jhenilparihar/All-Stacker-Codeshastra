@@ -58,30 +58,12 @@ class App extends Component {
           <>
             <BrowserRouter>
               <Routes>
-                 
                 <Route path="/" element={<Navbar />}>
-                  <Route index element={<Home />} />                  
-                  <Route path="dashboard" element={<Dashboard />} />
-                  <Route
-                    path="/create-profile"
-                    element={
-                      <ProfileForm />
-                    }
-                  />
-                  <Route
-                    path="/add-products"
-                    element={
-                      <ProductForm />
-                    }
-                  />
-                </Route>
-                   <Route
-                  path="leader"
-                  element={
-                    <Leaderboard
-                    />
-                  }
-                ></Route>
+                  <Route index element={<Home />} />
+                  <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/create-profile" element={<ProfileForm />} />
+                  <Route path="/add-products" element={<ProductForm />} />
+                  <Route path="/leader" element={<Leaderboard />} />
                 </Route>
               </Routes>
             </BrowserRouter>
