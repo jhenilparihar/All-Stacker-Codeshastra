@@ -81,6 +81,17 @@ class ProductForm extends Component {
     }
   };
 
+  SubmitHandle = async () => {
+    console.log("Here");
+    this.props.setLoading();
+    await addProduct(
+      this.state.ProductName,
+      this.state.Description,
+      this.state.ProductUrl,
+      this.state.Price
+    );
+  };
+
   render() {
     return (
       <div class="prof1">
@@ -123,6 +134,7 @@ class ProductForm extends Component {
              <div className="bn-div">
             <button class="common-sb">Add</button>
             </div>
+            <button onClick={() => this.SubmitHandle()}>Add</button>
           </div>
         </div>
       </div>
