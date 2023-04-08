@@ -33,9 +33,9 @@ componentDidMount = async () => {
                 <h2>{this.state.profile.pointsBalance}</h2>
               </div>
               <div className="score">
-                <div className="m-token"></div>
-                <div className="m-token"></div>
-                <div className="m-token"></div>
+                <div className="m-token"></div><span>30</span>
+                <div className="m-token"></div><span>30</span>
+                <div className="m-token"></div><span>30</span>
               </div>
             </div>
             {/* <div className="middle-profile">
