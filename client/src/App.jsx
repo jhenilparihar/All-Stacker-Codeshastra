@@ -24,6 +24,7 @@ import ProfileDetails from "./components/Profile/ProfileDetails";
 import Model from "./components/model";
 import Games from "./components/Games";
 import Quiz from "./components/Quiz/Quiz";
+import Admin from "./components/Admin/Admin";
 
 class App extends Component {
   constructor(props) {
@@ -88,6 +89,7 @@ class App extends Component {
                   <Route path="/ProfileDetails" element={<ProfileDetails />} />
                   <Route path="/games" element={<Games />} />
                   <Route path="/quiz" element={<Quiz />} />
+                  <Route path="/admin" element={<Admin/>} />
                 </Route>
               </Routes>
             </BrowserRouter>
