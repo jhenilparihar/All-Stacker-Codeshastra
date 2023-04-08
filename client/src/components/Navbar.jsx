@@ -1,5 +1,9 @@
 import React from "react";
 import { Outlet, useNavigate } from "react-router-dom";
+import Chat from "./Chat";
+import {Link} from 'react-router-dom'
+import { Typography } from "@mui/material";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 function Navbar() {
   const navi = useNavigate();
@@ -8,9 +12,10 @@ function Navbar() {
   };
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-        <a class="navbar-brand" href="#">
-          Navbar
+      <Chat/>
+      <nav nav className="navbar fixed-top navbar-expand-lg " id="nav_design">
+        <a class="navbar-brand" href="#" style={{marginLeft:"1.2vw",fontFamily:"Sacramento",fontSize:"40px",color:"#563300"}}>
+          ettarra
         </a>
         <button
           class="navbar-toggler"
@@ -24,27 +29,40 @@ function Navbar() {
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav ms-auto mb-0 g-0">
+          <li class="nav-item active">
+              <Link to='/' class="nav-link" href="#">
+               HOME
+              </Link>
+            </li>
             <li class="nav-item active">
-              <a class="nav-link" href="#">
-                Home 
-              </a>
+              <Link to='/menu' class="nav-link" href="#">
+                MENU
+              </Link>
+            </li>
+            <li class="nav-item">
+              <Link to='/events' class="nav-link" >
+                EVENTS
+              </Link>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
-                Features
+                GAMES
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                Pricing
-              </a>
+              <Link to='/leader' class="nav-link" href="#">
+                LEADERBOARD
+              </Link>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#">
-                Disabled
-              </a>
+              <Link to='/ProfileDetails' class="nav-link" href="#">
+              <AccountCircleIcon sx={{color:"#563300",fontSize:"30px",marginTop:"0px"}}/>
+              </Link>
             </li>
+           
+            
+            
           </ul>
         </div>
       </nav>

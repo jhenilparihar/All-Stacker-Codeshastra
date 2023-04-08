@@ -10,6 +10,7 @@ import "./App.css";
 import Chat from "./components/Chat";
 import Menu from "./components/Menu";
 import Navbar from "./components/Navbar";
+import Events from "./components/Events";
 import ConnectToMetamask from "./components/ConnectToMetamask";
 import Loading from "./components/Loading";
 import Leaderboard from "./components/Leaderboard";
@@ -21,6 +22,9 @@ import ProductForm from "./components/Product/ProductForm";
 import Offer from "./components/Common/Offer";
 import ProfileDetails from "./components/Profile/ProfileDetails";
 import Model from "./components/model";
+import Games from "./components/Games";
+import Quiz from "./components/Quiz/Quiz";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -62,8 +66,12 @@ class App extends Component {
           <ConnectToMetamask connectToMetamask={connectToMetamask} />
         ) : this.state.loading ? (
           <Loading />
-        // ) : !this.state.profileSet ? (
-        //   <ProfileForm setLoading={()=>{this.setState({loading: true})}} />
+        ) : !this.state.profileSet ? (
+          <ProfileForm
+            setLoading={() => {
+              this.setState({ loading: true });
+            }}
+          />
         ) : (
           <>
             <BrowserRouter>
@@ -74,24 +82,18 @@ class App extends Component {
                   <Route path="/add-products" element={<ProductForm />} />
                   <Route path="/leader" element={<Leaderboard />} />
                   <Route path="/menu" element={<Menu />} />
-                  <Route
-                    path="/offer-form"
-                    element={
-                      <Offer />
-                    }
-                  />
-                   <Route
-                    path="/ProfileDetails"
-                    element={
-                      <ProfileDetails />
-                    }
-                  />
+            
                    <Route
                     path="/model"
                     element={
                       <Model />
                     }
                   />
+                  <Route path="/events" element={<Events />} />
+                  <Route path="/offer-form" element={<Offer />} />
+                  <Route path="/ProfileDetails" element={<ProfileDetails />} />
+                  <Route path="/games" element={<Games />} />
+                  <Route path="/quiz" element={<Quiz/>} />
                 </Route>
               </Routes>
             </BrowserRouter>
