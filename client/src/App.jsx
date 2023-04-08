@@ -10,7 +10,8 @@ import "./App.css";
 import Chat from "./components/Chat";
 import Menu from "./components/Menu";
 import Navbar from "./components/Navbar";
-import Events from "./components/Events";git
+import Events from "./components/Events";
+git;
 import ConnectToMetamask from "./components/ConnectToMetamask";
 import Loading from "./components/Loading";
 import Leaderboard from "./components/Leaderboard";
@@ -62,9 +63,9 @@ class App extends Component {
           <ConnectToMetamask connectToMetamask={connectToMetamask} />
         ) : this.state.loading ? (
           <Loading />
-        // ) : !this.state.profileSet ? (
-        //   <ProfileForm setLoading={()=>{this.setState({loading: true})}} />
         ) : (
+          // ) : !this.state.profileSet ? (
+          //   <ProfileForm setLoading={()=>{this.setState({loading: true})}} />
           <>
             <BrowserRouter>
               <Routes>
@@ -75,18 +76,8 @@ class App extends Component {
                   <Route path="/leader" element={<Leaderboard />} />
                   <Route path="/menu" element={<Menu />} />
                   <Route path="/events" element={<Events />} />
-                  <Route
-                    path="/offer-form"
-                    element={
-                      <Offer />
-                    }
-                  />
-                   <Route
-                    path="/ProfileDetails"
-                    element={
-                      <ProfileDetails />
-                    }
-                  />
+                  <Route path="/offer-form" element={<Offer />} />
+                  <Route path="/ProfileDetails" element={<ProfileDetails />} />
                 </Route>
               </Routes>
             </BrowserRouter>
