@@ -20,6 +20,7 @@ import ProfileForm from "./components/Profile/ProfileForm";
 import ProductForm from "./components/Product/ProductForm";
 import Offer from "./components/Common/Offer";
 import ProfileDetails from "./components/Profile/ProfileDetails";
+import Model from "./components/model";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -83,6 +84,12 @@ class App extends Component {
                     path="/ProfileDetails"
                     element={
                       <ProfileDetails />
+                    }
+                  />
+                   <Route
+                    path="/model"
+                    element={
+                      <Model />
                     }
                   />
                 </Route>
