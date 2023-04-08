@@ -12,11 +12,8 @@ import Menu from "./components/Menu";
 import Navbar from "./components/Navbar";
 import ConnectToMetamask from "./components/ConnectToMetamask";
 import Loading from "./components/Loading";
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-} from "react-router-dom";
+import Dashboard from "./components/Dashboard/Dashboard";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Landing/Home";
 
 class App extends Component {
@@ -56,22 +53,12 @@ class App extends Component {
           <Loading />
         ) : (
           <>
-          <BrowserRouter>
+            <BrowserRouter>
               <Routes>
-                <Route
-                  path="/"
-                  element={
-                    <Navbar
-                    />
-                  }
-                >
+                <Route path="/" element={<Navbar />}>
                   <Route index element={<Home />} />
-                  <Route
-                    path="marketplace"
-                    element={
-                      <h1>Explore</h1>
-                    }
-                  /></Route>
+                  <Route path="dashboard" element={<Dashboard />} />
+                </Route>
               </Routes>
             </BrowserRouter>
           </>
