@@ -64,6 +64,7 @@ class App extends Component {
                   <Route path="/create-profile" element={<ProfileForm />} />
                   <Route path="/add-products" element={<ProductForm />} />
                   <Route path="/leader" element={<Leaderboard />} />
+                  <Route path="/menu" element={<Menu />} />
                 </Route>
               </Routes>
             </BrowserRouter>
