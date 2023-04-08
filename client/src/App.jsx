@@ -24,6 +24,7 @@ import ProfileDetails from "./components/Profile/ProfileDetails";
 import Model from "./components/model";
 import Games from "./components/Games";
 import Quiz from "./components/Quiz/Quiz";
+import NftForm from "./components/NFT/NftForm";
 
 class App extends Component {
   constructor(props) {
@@ -80,6 +81,7 @@ class App extends Component {
                     path="/add-products"
                     element={<ProductForm setLoading={this.setLoading} />}
                   />
+                  <Route path="/nftfrom" element={<NftForm />} />
                   <Route path="/leader" element={<Leaderboard />} />
                   <Route path="/menu" element={<Menu />} />
                   <Route path="/model" element={<Model />} />
