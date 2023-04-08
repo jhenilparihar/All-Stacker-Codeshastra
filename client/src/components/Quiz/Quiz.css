@@ -20,6 +20,10 @@
 } */
   
 .quiz_app {
+    margin-left:auto;
+    width:60%;
+    margin-right:auto;
+    margin-top: 30vh;
     background-color: #F2EAE2;
     width: 450px;
     min-height: 200px;
@@ -73,17 +77,18 @@
     justify-content: space-between;
   }
   
-  button {
+  #button1 {
     width: 100%;
     font-size: 16px;
     color: #ffffff;
-    background-color: #252d4a;
+    background-color: #AB877D;
     border-radius: 15px;
     display: flex;
     padding: 5px;
+    margin: 2px;
     justify-content: flex-start;
     align-items: center;
-    border: 5px solid #234668;
+    border: 2px solid #ffffff;
     cursor: pointer;
   }
   
@@ -95,14 +100,14 @@
     background-color: #ff3333;
   }
   
-  button:hover {
+#button1:hover {
     background-color: #555e7d;
   }
   
-  button:focus {
+#button1:focus {
     outline: none;
   }
   
-  button svg {
+#button1 svg {
     margin-right: 5px;
   }
