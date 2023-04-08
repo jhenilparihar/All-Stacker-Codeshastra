@@ -86,7 +86,7 @@ class App extends Component {
                    <Route
                     path="/model"
                     element={
-                      <Model />
+                      <ProfileForm />
                     }
                   />
                   <Route path="/events" element={<Events />} />

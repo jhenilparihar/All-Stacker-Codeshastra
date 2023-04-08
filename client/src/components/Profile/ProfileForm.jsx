@@ -93,23 +93,34 @@ class ProfileForm extends Component {
           <div className="im1"></div>
           <div className="im2"></div>
           <div className="fields">
-            <span>Image</span>
-            <input type="file" onChange={this.onUpload} />
-            <span>name</span>
+
+          <div class="prof-img setting_image">
+                      <img src={this.state.fileUrl} alt="" />
+                      <input  type="file" onChange={this.onUpload} />
+                    </div>
+
+            
+            
+            <span class="sp">Name</span>
             <input
+            class="common-in"
               type="text"
               placeholder="Name"
               value={this.state.Name}
               onChange={(e) => this.setState({ Name: e.target.value })}
             />
-            <span>email</span>
+            <span class="sp">Email</span>
             <input
+            class="common-in"
               type="text"
               value={this.state.Email}
               placeholder="Email"
               onChange={(e) => this.setState({ Email: e.target.value })}
             />
-            <button onClick={this.submitHandler}>Submit</button>
+            <div className="bn-div">
+            <button onClick={this.submitHandler} class="common-sb">Submit</button>
+            </div>
+            
           </div>
         </div>
       </div>
