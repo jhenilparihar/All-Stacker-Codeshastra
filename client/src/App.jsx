@@ -11,7 +11,6 @@ import Chat from "./components/Chat";
 import Menu from "./components/Menu";
 import Navbar from "./components/Navbar";
 import Events from "./components/Events";
-git;
 import ConnectToMetamask from "./components/ConnectToMetamask";
 import Loading from "./components/Loading";
 import Leaderboard from "./components/Leaderboard";
