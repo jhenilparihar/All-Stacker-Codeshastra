@@ -70,6 +70,9 @@ text-align: left;
   text-align: center;
   font-size: 18px;
   background: #e8d8d8;
+  box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
+  margin-top: 3vh;
+  border-radius: 25px;
   /* height:20%; */
   /* Center slide text vertically */
   display: flex;
@@ -82,5 +85,5 @@ text-align: left;
 }
 .mySwiper{
     height:40%;
-    background: #e8d8d8;
+    /* background: #e8d8d8; */
 }
