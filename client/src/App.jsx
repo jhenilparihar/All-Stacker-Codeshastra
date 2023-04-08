@@ -65,7 +65,7 @@ class App extends Component {
                     />
                   }
                 >
-                  <Route index element={<h1>Home</h1>} />
+                  <Route index element={<Home />} />
                   <Route
                     path="marketplace"
                     element={
