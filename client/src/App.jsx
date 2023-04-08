@@ -17,6 +17,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
+import Home from "./components/Landing/Home";
 
 class App extends Component {
   constructor(props) {
@@ -47,7 +48,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {!this.state.metamaskConnected ? (
+        {this.state.loading ? (
+          <Loading />
+        ) : !this.state.metamaskConnected ? (
           <ConnectToMetamask connectToMetamask={connectToMetamask} />
         ) : this.state.loading ? (
           <Loading />
@@ -62,7 +65,7 @@ class App extends Component {
                     />
                   }
                 >
-                  <Route index element={<h1>Home</h1>} />
+                  <Route index element={<Home />} />
                   <Route
                     path="marketplace"
                     element={
