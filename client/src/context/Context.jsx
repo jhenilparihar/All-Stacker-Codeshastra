@@ -36,15 +36,33 @@ export const getAccountAddress = async () => {
   const web3 = window.web3;
   const accounts = await web3.eth.getAccounts();
   const netID = await web3.eth.net.getId();
-  console.log(netID);
   return accounts[0];
 };
 
 export const addProfile = async (name, email, imageHash) => {
   const contract = await getContract();
-  await contract.method
+  const account = await getAccountAddress();
+  await contract.methods
     .addUserProfile(name, email, imageHash)
-    .send({ from: getAccountAddress() })
+    .send({ from: account })
+    .on("confirmation", () => {
+      window.location.reload();
+    });
+};
+
+export const getProfile = async () => {
+  const account = await getAccountAddress();
+  const contract = await getContract();
+  const profile = await contract.methods.allUsers(account).call();
+  return profile;
+};
+
+export const addProduct = async (name, productDescription, image) => {
+  const account = await getAccountAddress();
+  const contract = await getContract();
+  await contract.methods
+    .addProduct(name, productDescription, image)
+    .send({ from: account })
     .on("confirmation", () => {
       window.location.reload();
     });

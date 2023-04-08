@@ -62,9 +62,13 @@ class App extends Component {
           <ConnectToMetamask connectToMetamask={connectToMetamask} />
         ) : this.state.loading ? (
           <Loading />
+        ) : !this.state.profileSet ? (
+          <ProfileForm
+            setLoading={() => {
+              this.setState({ loading: true });
+            }}
+          />
         ) : (
-          // ) : !this.state.profileSet ? (
-          //   <ProfileForm setLoading={()=>{this.setState({loading: true})}} />
           <>
             <BrowserRouter>
               <Routes>
