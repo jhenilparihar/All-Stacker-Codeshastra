@@ -29,21 +29,24 @@ const Menu = ({ setLoading }) => {
 
   return (
     <div>
-          <Typography
-            sx={{
-              fontSize: "45px",
-              color: "#563300",
-              fontWeight: "bold",
-              paddingTop: "9vh",
-              fontFamily: "Sacramento",
-            }}
+      <Typography
+        sx={{
+          fontSize: "45px",
+          color: "#563300",
+          fontWeight: "bold",
+          paddingTop: "9vh",
+          fontFamily: "Sacramento",
+        }}
+      >
+        Order Now!
+      </Typography>
+      {product ? (
+        <>
+          <Grid
+            container
+            sx={{ margin: "1vw 0vw 1vw 3vw", display: "inline-flex" }}
           >
-            Order Now!
-          </Typography>
-          {product ? <>
-            {console.log("hii")}
-            <Grid container sx={{ margin: "1vw 0vw 1vw 3vw", display: "inline-flex" }}>
-            {product.map((e,i) => {
+            {product.map((e, i) => {
               return (
                 <Grid
                   component={motion.div}
