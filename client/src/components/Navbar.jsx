@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Outlet } from 'react-router-dom'
 
 function Navbar() {
     const navi = useNavigate()
@@ -31,7 +31,7 @@ function Navbar() {
   </div>
 </nav>
 
-<h1>Hi</h1>
+<Outlet/>
     </>
   )
 }
