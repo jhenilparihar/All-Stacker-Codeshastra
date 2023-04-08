@@ -10,7 +10,7 @@ class ProfileDetails extends Component {
     };
   }
 
-componentDidMount = async () => {
+  componentDidMount = async () => {
     const profile = await getProfile();
     this.setState({ profile: profile });
   };
@@ -18,12 +18,14 @@ componentDidMount = async () => {
   render() {
     console.log(this.state.profile);
     return (
-      <div className="profile-details" style={{marginTop:"10vh"}}>
+      <div className="profile-details" style={{ marginTop: "10vh" }}>
         {this.state.profile ? (
           <div className="inner-profile">
             <div className="upper-profile">
               <div className="u1">
-                <div className="prof-img"></div>
+                <div className="prof-img">
+                  <img src={this.state.profile.profileImage} alt="" />
+                </div>
                 <h1>Hi, {this.state.profile.name}</h1>
                 <div className="share-prof">Share</div>
               </div>
