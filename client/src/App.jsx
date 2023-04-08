@@ -9,8 +9,14 @@ import { getAccountAddress } from "./context/Context";
 import "./App.css";
 import Chat from "./components/Chat";
 import Menu from "./components/Menu";
+import Navbar from "./components/Navbar";
 import ConnectToMetamask from "./components/ConnectToMetamask";
 import Loading from "./components/Loading";
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+} from "react-router-dom";
 
 class App extends Component {
   constructor(props) {
@@ -46,11 +52,26 @@ class App extends Component {
         ) : this.state.loading ? (
           <Loading />
         ) : (
-
-
-            <Menu/>
-
-            
+          <>
+          <BrowserRouter>
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <Navbar
+                    />
+                  }
+                >
+                  <Route index element={<h1>Home</h1>} />
+                  <Route
+                    path="marketplace"
+                    element={
+                      <h1>Explore</h1>
+                    }
+                  /></Route>
+              </Routes>
+            </BrowserRouter>
+          </>
         )}
       </div>
     );
