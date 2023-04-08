@@ -21,8 +21,10 @@ import ProfileForm from "./components/Profile/ProfileForm";
 import ProductForm from "./components/Product/ProductForm";
 import Offer from "./components/Common/Offer";
 import ProfileDetails from "./components/Profile/ProfileDetails";
+import Model from "./components/model";
 import Games from "./components/Games";
 import Quiz from "./components/Quiz/Quiz";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -80,6 +82,13 @@ class App extends Component {
                   <Route path="/add-products" element={<ProductForm />} />
                   <Route path="/leader" element={<Leaderboard />} />
                   <Route path="/menu" element={<Menu />} />
+            
+                   <Route
+                    path="/model"
+                    element={
+                      <Model />
+                    }
+                  />
                   <Route path="/events" element={<Events />} />
                   <Route path="/offer-form" element={<Offer />} />
                   <Route path="/ProfileDetails" element={<ProfileDetails />} />

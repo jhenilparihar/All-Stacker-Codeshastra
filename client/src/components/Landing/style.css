@@ -32,7 +32,7 @@ h6 {
   position: relative;
 }
 .song-div{
-  background-color: rgba(255,255,255,0.7);
+  /* background-color: rgba(255,255,255,0.7); */
   backdrop-filter: blur(2px);
   width: 230px;
   height: 350px;
@@ -51,13 +51,6 @@ top: 178px;
 left: 75px;
 text-align: left;
 }
-/* .title-div h1{
-  font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    color: black;
-    font-size: 40px;
-} */
 .title-div h1{
   font-family: 'Sacramento', cursive;
   font-weight: 800;
