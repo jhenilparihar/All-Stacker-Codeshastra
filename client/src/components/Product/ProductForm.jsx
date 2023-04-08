@@ -81,6 +81,17 @@ class ProductForm extends Component {
     }
   };
 
+  SubmitHandle = async () => {
+    console.log("Here");
+    this.props.setLoading();
+    await addProduct(
+      this.state.ProductName,
+      this.state.Description,
+      this.state.ProductUrl,
+      this.state.Price
+    );
+  };
+
   render() {
     return (
       <div class="prof1">
@@ -113,7 +124,7 @@ class ProductForm extends Component {
               placeholder="Description"
               onChange={(e) => this.setState({ Description: e.target.value })}
             ></textarea>
-            <button>Add</button>
+            <button onClick={() => this.SubmitHandle()}>Add</button>
           </div>
         </div>
       </div>

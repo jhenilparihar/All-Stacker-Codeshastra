@@ -46,9 +46,7 @@ function Navbar() {
               </Link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                GAMES
-              </a>
+              <Link to='/games' class="nav-link">GAMES</Link>
             </li>
             <li class="nav-item">
               <Link to='/leader' class="nav-link" href="#">

@@ -2,9 +2,9 @@
 pragma solidity ^0.8.9;
 
 contract Cafe {
-    uint256 nftCounter;
-    uint256 userCount;
-    uint256 productCount;
+    uint256 public nftCounter;
+    uint256 public userCount;
+    uint256 public productCount;
 
     struct User {
         uint userId;

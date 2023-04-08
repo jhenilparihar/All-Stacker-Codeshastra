@@ -57,13 +57,31 @@ export const getProfile = async () => {
   return profile;
 };
 
-export const addProduct = async (name, productDescription, image) => {
+export const addProduct = async (
+  name,
+  productDescription,
+  image,
+  productPrice
+) => {
   const account = await getAccountAddress();
   const contract = await getContract();
+  const price = window.web3.utils.toWei(productPrice.toString(), "ether");
+
   await contract.methods
-    .addProduct(name, productDescription, image)
+    .addProduct(name, productDescription, image, price)
     .send({ from: account })
     .on("confirmation", () => {
       window.location.reload();
     });
+};
+
+export const getProduct = async () => {
+  const contract = await getContract();
+  const count = await contract.methods.productCount().call();
+  let allProduct = [];
+  for (var i = 1; i <= count; i++) {
+    const product = await contract.methods.allProduct(i).call();
+    allProduct.push(product);
+  }
+  return allProduct;
 };
