@@ -24,9 +24,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: false,
+      loading: true,
       metamaskConnected: false,
       accountAddress: null,
+      profileSet: true,
     };
   }
   componentWillMount = async () => {
@@ -36,14 +37,19 @@ class App extends Component {
 
   loadBlockchainData = async () => {
     if (await isMetamaskConnected()) {
-      this.setState({ metamaskConnected: true });
+      this.setState({ metamaskConnected: true, loading: true });
       const account = await getAccountAddress();
+      this.setState({ accountAddress: account });
       const contract = await getContract();
-      const something = await contract.methods.balanceOf(account).call();
-      console.log(something);
+      const isProfileSet = await contract.methods.isProfileSet(account).call();
+      console.log(isProfileSet);
+      if (!isProfileSet) {
+        this.setState({ profileSet: false });
+      }
     } else {
       this.setState({ metamaskConnected: false });
     }
+    this.setState({ loading: false });
   };
 
   render() {
@@ -55,48 +61,30 @@ class App extends Component {
           <ConnectToMetamask connectToMetamask={connectToMetamask} />
         ) : this.state.loading ? (
           <Loading />
+        // ) : !this.state.profileSet ? (
+        //   <ProfileForm setLoading={()=>{this.setState({loading: true})}} />
         ) : (
           <>
             <BrowserRouter>
               <Routes>
-                 
                 <Route path="/" element={<Navbar />}>
-                  <Route index element={<Home />} />                  
-                  <Route path="dashboard" element={<Dashboard />} />
+                  <Route index element={<Home />} />
+                  <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/add-products" element={<ProductForm />} />
+                  <Route path="/leader" element={<Leaderboard />} />
+                  <Route path="/menu" element={<Menu />} />
                   <Route
-                    path="/create-profile"
-                    element={
-                      <ProfileForm />
-                    }
-                  />
-                  <Route
-                    path="/add-products"
-                    element={
-                      <ProductForm />
-                    }
-                  />
-
-                <Route
                     path="/offer-form"
                     element={
                       <Offer />
                     }
                   />
-
-                 <Route
+                   <Route
                     path="/ProfileDetails"
                     element={
                       <ProfileDetails />
                     }
                   />
-                </Route>
-                   <Route
-                  path="leader"
-                  element={
-                    <Leaderboard
-                    />
-                  }
-                ></Route>
                 </Route>
               </Routes>
             </BrowserRouter>

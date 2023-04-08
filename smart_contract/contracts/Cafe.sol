@@ -2,7 +2,7 @@
 pragma solidity ^0.8.9;
 
 contract Cafe {
-    uint256 couponCount;
+    uint256 nftCounter;
     uint256 userCount;
     uint256 productCount;
 
@@ -13,8 +13,16 @@ contract Cafe {
         address walletAddress;
         uint256 pointsBalance;
         string profileImage;
-        Loyalties[] ownedLoyalties;
         uint[] productId;
+    }
+
+    struct NFT {
+        uint nftId;
+        string name;
+        string description;
+        uint256 tokenRequired;
+        uint256 level;
+        address[] owners;
     }
 
     struct Event {
@@ -22,13 +30,14 @@ contract Cafe {
         string eventName;
         string eventDate;
         string eventDesc;
+        string venu;
     }
 
-    struct Loyalties {
-        uint256 couponId;
-        string expireDate;
-        string details;
-    }
+    // struct Loyalties {
+    //     uint256 couponId;
+    //     string expireDate;
+    //     string details;
+    // }
 
     struct Produts {
         uint256 productId;
@@ -41,7 +50,7 @@ contract Cafe {
 
     mapping(address => User) public allUsers;
     mapping(address => bool) public isProfileSet;
-    mapping(uint256 => Loyalties) public allLoyalties;
+    mapping(uint256 => NFT) public allNFTs;
     mapping(uint256 => Produts) public allProduct;
 
     function placeOrderUsingMoney(
@@ -60,9 +69,7 @@ contract Cafe {
         User storage user = allUsers[msg.sender];
 
         user.pointsBalance += _rewards;
-
         owner.transfer(msg.value);
-
         user.productId.push(_productId);
     }
 
@@ -70,7 +77,7 @@ contract Cafe {
         string memory _name,
         string memory _email,
         string memory _profileImage
-    ) public {
+    ) external {
         require(msg.sender != address(0));
 
         userCount++;
@@ -82,30 +89,36 @@ contract Cafe {
         userprofile.walletAddress = msg.sender;
         userprofile.email = _email;
         userprofile.profileImage = _profileImage;
-        userprofile.pointsBalance = 100;
+        userprofile.pointsBalance = 10;
 
         allUsers[msg.sender] = userprofile;
         isProfileSet[msg.sender] = true;
     }
 
-    function buyLoyalties(uint256 _couponId) public {
+    function buyNFT(uint256 _nftId) public {
         require(isProfileSet[msg.sender], "no address");
-        Loyalties storage loyalty = allLoyalties[_couponId];
+        User storage userprofile = allUsers[msg.sender];
+        NFT storage nft = allNFTs[_nftId];
 
-        allUsers[msg.sender].ownedLoyalties.push(loyalty);
+        require(userprofile.pointsBalance >= nft.tokenRequired);
+
+        userprofile.pointsBalance -= nft.tokenRequired;
+        nft.owners.push(msg.sender);
     }
 
-    function addLoyalty(
-        string memory _expireDate,
-        string memory _details
+    function addNFT(
+        string memory _name,
+        string memory _details,
+        uint256 _tokenRequired,
+        uint256 _level
     ) public {
-        couponCount++;
-        Loyalties memory newLoyalty = Loyalties(
-            couponCount,
-            _expireDate,
-            _details
-        );
-        allLoyalties[couponCount] = newLoyalty;
+        nftCounter++;
+        NFT storage nft = allNFTs[nftCounter];
+        nft.nftId = nftCounter;
+        nft.name = _name;
+        nft.description = _details;
+        nft.level = _level;
+        nft.tokenRequired = _tokenRequired;
     }
 
     function addProduct(
