@@ -49,6 +49,8 @@ contract Cafe {
     }
 
     mapping(address => User) public allUsers;
+    mapping(uint256 => address) public allUsersAddress;
+
     mapping(address => bool) public isProfileSet;
     mapping(uint256 => NFT) public allNFTs;
     mapping(uint256 => Produts) public allProduct;
@@ -92,6 +94,8 @@ contract Cafe {
         userprofile.pointsBalance = 10;
 
         allUsers[msg.sender] = userprofile;
+        allUsersAddress[userCount] = msg.sender;
+
         isProfileSet[msg.sender] = true;
     }
 
@@ -138,5 +142,10 @@ contract Cafe {
         );
 
         allProduct[productCount] = newProduct;
+    }
+
+    function updateRewards(uint256 _points) public {
+        User storage userprofile = allUsers[msg.sender];
+        userprofile.pointsBalance += _points;
     }
 }
