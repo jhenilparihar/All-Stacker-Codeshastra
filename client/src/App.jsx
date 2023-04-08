@@ -83,7 +83,10 @@ class App extends Component {
                   />
                   <Route path="/nftfrom" element={<NftForm />} />
                   <Route path="/leader" element={<Leaderboard />} />
-                  <Route path="/menu" element={<Menu />} />
+                  <Route
+                    path="/menu"
+                    element={<Menu setLoading={this.setLoading} />}
+                  />
                   <Route path="/model" element={<Model />} />
                   <Route path="/events" element={<Events />} />
                   <Route path="/offer-form" element={<Offer />} />
