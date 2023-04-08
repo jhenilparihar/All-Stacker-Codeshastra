@@ -4,39 +4,48 @@ import './Quiz.css';
 export default function Quiz() {
 	const questions = [
 		{
-			questionText: 'What is the capital of France?',
+			questionText: 'How did the term cappuccino originate?',
 			answerOptions: [
-				{ answerText: 'New York', isCorrect: false },
-				{ answerText: 'London', isCorrect: false },
-				{ answerText: 'Paris', isCorrect: true },
-				{ answerText: 'Dublin', isCorrect: false },
+				{ answerText: 'It is the French term for “foam on coffee', isCorrect: false },
+				{ answerText: 'From the habit of the Capuchin friar', isCorrect: true },
+				{ answerText: 'It is Italian for “frothy coffee drink', isCorrect: false },
+				{ answerText: 'It was a term invented by a coffee company.', isCorrect: false },
 			],
 		},
 		{
-			questionText: 'Who is CEO of Tesla?',
+			questionText: 'About how many espresso beans are required to make one espresso?',
 			answerOptions: [
-				{ answerText: 'Jeff Bezos', isCorrect: false },
-				{ answerText: 'Elon Musk', isCorrect: true },
-				{ answerText: 'Bill Gates', isCorrect: false },
-				{ answerText: 'Tony Stark', isCorrect: false },
+				{ answerText: '66', isCorrect: false },
+				{ answerText: '42', isCorrect: true },
+				{ answerText: '49', isCorrect: false },
+				{ answerText: '80', isCorrect: false },
 			],
 		},
 		{
-			questionText: 'The iPhone was created by which company?',
+			questionText: 'How many cups of coffee are consumed each year in the world?',
 			answerOptions: [
-				{ answerText: 'Apple', isCorrect: true },
-				{ answerText: 'Intel', isCorrect: false },
-				{ answerText: 'Amazon', isCorrect: false },
-				{ answerText: 'Microsoft', isCorrect: false },
+				{ answerText: '400 billion', isCorrect: true },
+				{ answerText: '300 billion', isCorrect: false },
+				{ answerText: '90 billion', isCorrect: false },
+				{ answerText: '2 billion', isCorrect: false },
 			],
 		},
 		{
-			questionText: 'How many Harry Potter books are there?',
+			questionText: 'What percentage of coffee drinkers prefer their coffee black?',
 			answerOptions: [
-				{ answerText: '1', isCorrect: false },
-				{ answerText: '4', isCorrect: false },
-				{ answerText: '6', isCorrect: false },
-				{ answerText: '7', isCorrect: true },
+				{ answerText: '10%', isCorrect: false },
+				{ answerText: '36%', isCorrect: false },
+				{ answerText: '30%', isCorrect: false },
+				{ answerText: '40%', isCorrect: true },
+			],
+		},
+		{
+			questionText: ' About how many coffee plants are there in Brazil?',
+			answerOptions: [
+				{ answerText: '700 million', isCorrect: false },
+				{ answerText: '2 billion', isCorrect: false },
+				{ answerText: '4 billion', isCorrect: true },
+				{ answerText: '7 billion', isCorrect: false },
 			],
 		},
 	];
@@ -73,7 +82,7 @@ export default function Quiz() {
 					</div>
 					<div className='answer-section'>
 						{questions[currentQuestion].answerOptions.map((answerOption) => (
-							<button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+							<button id="button1" onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
 						))}
 					</div>
 				</>
