@@ -7,15 +7,20 @@ import {
 } from "./context/Context";
 import { getAccountAddress } from "./context/Context";
 import "./App.css";
-
+import Navbar from "./components/Navbar";
 import ConnectToMetamask from "./components/ConnectToMetamask";
 import Loading from "./components/Loading";
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+} from "react-router-dom";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: true,
+      loading: false,
       metamaskConnected: false,
       accountAddress: null,
     };
@@ -45,7 +50,27 @@ class App extends Component {
         ) : this.state.loading ? (
           <Loading />
         ) : (
-          <h1 className="text-3xl font-bold underline">Hello world!</h1>
+          // <h1 className="text-3xl font-bold underline">Hello world!</h1>
+          <>
+          <BrowserRouter>
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <Navbar
+                    />
+                  }
+                >
+                  <Route index element={<h1>Home</h1>} />
+                  <Route
+                    path="marketplace"
+                    element={
+                      <h1>Explore</h1>
+                    }
+                  /></Route>
+              </Routes>
+            </BrowserRouter>
+          </>
         )}
       </div>
     );
