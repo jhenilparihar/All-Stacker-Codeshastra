@@ -16,6 +16,24 @@ export default function Leaderboard() {
   return (
     <>
       <Grid container spacing={0}>
+  useEffect(() => {
+    const getProfiles = async () => {
+      const _profile = await getAllProfile();
+      console.log(_profile);
+      setProfile(_profile);
+    };
+    getProfiles();
+  }, []);
+
+  const [profile, setProfile] = useState();
+  
+
+  let a = 10;
+  return (
+    <>
+    {profile?<>
+    
+      <Grid container spacing={0} sx={{ marginTop: "5vh" }}>
         <Grid item md={4}>
           <Grid
             container
@@ -40,7 +58,7 @@ export default function Leaderboard() {
               alignContent="center"
             >
               <img
-                src={im}
+                src={profile[1].image}
                 alt="hii"
                 style={{
                   height: "96px",
@@ -52,9 +70,9 @@ export default function Leaderboard() {
               />
             </Grid>
             <Grid item md={12}>
-              <Typography variant="h7">Profile</Typography>
+              <Typography variant="h7">{profile[1].name}</Typography>
               <br></br>
-              No. of Points:<Chip label={a}></Chip>
+              No. of Points:<Chip label={profile[1].tokens}></Chip>
             </Grid>
           </Grid>
         </Grid>
@@ -82,7 +100,7 @@ export default function Leaderboard() {
               alignContent="center"
             >
               <img
-                src={im}
+                src={profile[0].image}
                 alt="hii"
                 style={{
                   height: "96px",
@@ -94,9 +112,9 @@ export default function Leaderboard() {
               />
             </Grid>
             <Grid item md={12}>
-              <Typography variant="h7">Profile</Typography>
+              <Typography variant="h7">{profile[0].name}</Typography>
               <br></br>
-              No. of Points:<Chip label={a}></Chip>
+              No. of Points:<Chip label={profile[0].tokens}></Chip>
             </Grid>
           </Grid>
         </Grid>
@@ -124,7 +142,7 @@ export default function Leaderboard() {
               alignContent="center"
             >
               <img
-                src={im}
+                src={profile[2].image}
                 alt="hii"
                 style={{
                   height: "96px",
@@ -136,9 +154,9 @@ export default function Leaderboard() {
               />
             </Grid>
             <Grid item md={12}>
-              <Typography variant="h7">Profile</Typography>
+              <Typography variant="h7">{profile[2].name}</Typography>
               <br></br>
-              No. of Points:<Chip label={a}></Chip>
+              No. of Points:<Chip label={profile[2].tokens}></Chip>
             </Grid>
           </Grid>
         </Grid>
@@ -179,6 +197,9 @@ export default function Leaderboard() {
         </Grid>
         <Grid item md={2}></Grid>
       </Grid>
+    
+    </>:<><div>NULL</div></>}
+      
     </>
   );
 }
