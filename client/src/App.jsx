@@ -26,6 +26,7 @@ import Games from "./components/Games";
 import Quiz from "./components/Quiz/Quiz";
 import Admin from "./components/Admin/Admin";
 import NftForm from "./components/NFT/NftForm";
+import Plans from "./components/Profile/Plans";
 import Spinner from "./components/Spinner/Spinner";
 class App extends Component {
   constructor(props) {
@@ -100,6 +101,8 @@ class App extends Component {
                     element={<Games setLoading={this.setLoading} />}
                   />
                   <Route path="/quiz" element={<Quiz />} />
+                  <Route path="/admin" element={<Admin/>} />
+                  <Route path="/plan" element={<Plans/>} />
                   <Route path="/admin" element={<Admin />} />
                   <Route path="/spinner" element={<Spinner />} />
                 </Route>
