@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./profile.css";
 import Grid from "@mui/system/Unstable_Grid/Grid";
-import "./profile.css";
+
 import { getProfile, getAllNFT } from "../../context/Context";
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
@@ -78,10 +78,7 @@ class ProfileDetails extends Component {
                       <Grid container>
                         {this.state.allNFTs.map((e, i) => {
                           return (
-                            <Grid
-                              item
-                              sx={{ margin: "0 5 vw", width: "133 px" }}
-                            >
+                            <Grid className="ajzeeb" item={4}>
                               <Typography variant="h4">
                                 Level:{this.state.allNFTs[i].level}
                               </Typography>
