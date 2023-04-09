@@ -9,6 +9,7 @@ import { Pagination } from "swiper";
 import { Typography } from "@mui/material";
 
 const Home = () => {
+  localStorage.setItem("try","false")
   return (
     <div class="main1">
       <div class="head-container">
