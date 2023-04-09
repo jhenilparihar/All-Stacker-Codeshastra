@@ -5,6 +5,7 @@ import {
   connectToMetamask,
   getContract,
 } from "./context/Context";
+import emailjs from "emailjs-com";
 import { getAccountAddress } from "./context/Context";
 import "./App.css";
 import Chat from "./components/Chat";
@@ -41,6 +42,33 @@ class App extends Component {
   componentWillMount = async () => {
     await loadWeb3();
     await this.loadBlockchainData();
+  };
+
+  sendEmail = async (name, email, hash, department) => {
+    console.log("Here");
+    var sendparams = {
+      to_name: name,
+      department: department,
+      reply_to: email,
+      message: hash,
+    };
+
+    emailjs
+      .send(
+        "service_ysr730a",
+        "template_v0a1xxc",
+        sendparams,
+        "e9JuUEfd3BAc8hdQi"
+      )
+      .then(
+        function(response) {
+          console.log("SUCCESS!", response.status, response.text);
+          window.location.reload();
+        },
+        function(error) {
+          console.log("FAILED...", error);
+        }
+      );
   };
 
   loadBlockchainData = async () => {
@@ -101,7 +129,9 @@ class App extends Component {
                     element={<Games setLoading={this.setLoading} />}
                   />
                   <Route path="/quiz" element={<Quiz />} />
-                  <Route path="/admin" element={<Admin/>} />
+                  <Route path="/admin" element={<Admin 
+                  sendEmail={this.sendEmail}
+                  />} />
                   <Route path="/plan" element={<Plans/>} />
                   <Route path="/admin" element={<Admin />} />
                   <Route path="/spinner" element={<Spinner/>} />

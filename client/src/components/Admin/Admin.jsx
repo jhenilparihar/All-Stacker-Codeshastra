@@ -25,7 +25,11 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const Admin = () => {
+
+
+
+const Admin = (sendEmail) => {
+    
     const classes = useStyles();
   return (
             <>
