@@ -76,27 +76,29 @@ class ProfileDetails extends Component {
                 {this.state.allNFTs?<>
                 
                 
-                  <Grid item>
-                  <Grid container >
+                 
+                  
                   {this.state.allNFTs.map((e,i)=>{
                        
                     return(
-                      <Grid item sx={{margin:"0 5 vw", width:"133 px"}}>
+                      <Grid container >
+                      {/* // <Grid item sx={{margin:"0 5 vw", width:"133 px"}}> */}
+                      <Grid className="ajzeeb" item={4}>
                         <Typography variant="h4">Level:{this.state.allNFTs[i].level}</Typography>
                         <Typography variant="h5">{this.state.allNFTs[i].name}</Typography>
                         <Typography variant="body2">{this.state.allNFTs[i].description}</Typography>
                         <p>Required:{this.state.allNFTs[i].tokenRequired}</p>
                         <Button disabled={(parseInt(this.state.profile.pointsBalance)<parseInt(this.state.allNFTs[i].tokenRequired))} onClick={()=>{this.hey(this.state.allNFTs[i].tokenRequired)}}>Buy</Button>
                       </Grid>
-
+                    </Grid>
                     );
                     
 
                   })}
-                  </Grid>
+                 
 
 
-                </Grid>
+                
                 
                 </>:<><div>NULL</div></>}
 
