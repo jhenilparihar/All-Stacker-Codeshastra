@@ -151,7 +151,7 @@ export const buyNFT = async (nftId) => {
   const account = await getAccountAddress();
 
   await contract.methods
-    .buyNFT(nftId)
+    .buyNFT(nftId, "")
     .send({ from: account })
     .on("confirmation", () => {
       window.location.reload();

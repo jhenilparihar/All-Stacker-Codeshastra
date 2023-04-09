@@ -1,4 +1,4 @@
 import abi from "./CafeSepolia.json";
 
 export const contractABI = abi.abi;
-export const contractAddress = "0x0E46abD41a3fE79C119a1d805c344B997f00E66F";
+export const contractAddress = "0xa10BdEfC167cB8786b80a5a97638BB30F1D443c4";
