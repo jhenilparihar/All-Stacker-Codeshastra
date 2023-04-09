@@ -175,7 +175,49 @@ export default function Leaderboard() {
                 <Avatar alt="Cindy Baker" src={im} />
               </ListItemAvatar>
               <ListItemText
-                primary={"Profile Name"}
+                primary={"Niel Shukla"}
+                secondary={
+                  <React.Fragment>
+                    <Typography
+                      sx={{ display: "inline-block" }}
+                      component="span"
+                      variant="body2"
+                      color="text.primary"
+                    >
+                      No. of Points:<Chip label="20"></Chip>
+                    </Typography>
+                  </React.Fragment>
+                }
+              />
+            </ListItem>
+            <Divider variant="inset" component="li" />
+            <ListItem alignItems="flex-start">
+              <ListItemAvatar>
+                <Avatar alt="Cindy Baker" src={im} />
+              </ListItemAvatar>
+              <ListItemText
+                primary={"Aasmi Thadani"}
+                secondary={
+                  <React.Fragment>
+                    <Typography
+                      sx={{ display: "inline-block" }}
+                      component="span"
+                      variant="body2"
+                      color="text.primary"
+                    >
+                      No. of Points:<Chip label="15"></Chip>
+                    </Typography>
+                  </React.Fragment>
+                }
+              />
+            </ListItem>
+            <Divider variant="inset" component="li" />
+            <ListItem alignItems="flex-start">
+              <ListItemAvatar>
+                <Avatar alt="Cindy Baker" src={im} />
+              </ListItemAvatar>
+              <ListItemText
+                primary={"Medha Shah"}
                 secondary={
                   <React.Fragment>
                     <Typography
@@ -191,6 +233,26 @@ export default function Leaderboard() {
               />
             </ListItem>
             <Divider variant="inset" component="li" />
+            <ListItem alignItems="flex-start">
+              <ListItemAvatar>
+                <Avatar alt="Cindy Baker" src={im} />
+              </ListItemAvatar>
+              <ListItemText
+                primary={"Sahil Kamath"}
+                secondary={
+                  <React.Fragment>
+                    <Typography
+                      sx={{ display: "inline-block" }}
+                      component="span"
+                      variant="body2"
+                      color="text.primary"
+                    >
+                      No. of Points:<Chip label="5"></Chip>
+                    </Typography>
+                  </React.Fragment>
+                }
+              />
+            </ListItem>
           </List>
         </Grid>
         <Grid item md={2}></Grid>

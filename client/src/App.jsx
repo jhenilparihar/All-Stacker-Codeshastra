@@ -30,6 +30,7 @@ import NftForm from "./components/NFT/NftForm";
 import Plans from "./components/Profile/Plans";
 
 class App extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
