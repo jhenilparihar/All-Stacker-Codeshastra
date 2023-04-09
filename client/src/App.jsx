@@ -61,11 +61,11 @@ class App extends Component {
         "e9JuUEfd3BAc8hdQi"
       )
       .then(
-        function(response) {
+        function (response) {
           console.log("SUCCESS!", response.status, response.text);
           window.location.reload();
         },
-        function(error) {
+        function (error) {
           console.log("FAILED...", error);
         }
       );
@@ -129,13 +129,12 @@ class App extends Component {
                     element={<Games setLoading={this.setLoading} />}
                   />
                   <Route path="/quiz" element={<Quiz />} />
-                  <Route path="/admin" element={<Admin 
-                  sendEmail={this.sendEmail}
-                  />} />
-                  <Route path="/plan" element={<Plans/>} />
+                  <Route
+                    path="/admin"
+                    element={<Admin sendEmail={this.sendEmail} />}
+                  />
+                  <Route path="/plan" element={<Plans />} />
                   <Route path="/admin" element={<Admin />} />
-                  <Route path="/spinner" element={<Spinner/>} />
-
                 </Route>
               </Routes>
             </BrowserRouter>

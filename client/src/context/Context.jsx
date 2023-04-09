@@ -50,28 +50,6 @@ export const addProfile = async (name, email, imageHash) => {
     });
 };
 
-export const addCups = async (_cups) => {
-  const contract = await getContract();
-  const account = await getAccountAddress();
-  await contract.methods
-    .addCups(_cups)
-    .send({ from: account })
-    .on("confirmation", () => {
-      window.location.reload();
-    });
-};
-
-export const deduceCups = async (_cups) => {
-  const contract = await getContract();
-  const account = await getAccountAddress();
-  await contract.methods
-    .deduceCups(_cups)
-    .send({ from: account })
-    .on("confirmation", () => {
-      window.location.reload();
-    });
-};
-
 export const getProfile = async () => {
   const account = await getAccountAddress();
   const contract = await getContract();
