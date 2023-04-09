@@ -93,7 +93,7 @@ class App extends Component {
                   />
                   <Route path="/model" element={<Model />} />
                   <Route path="/events" element={<Events />} />
-                  <Route path="/offer-form" element={<Offer />} />
+                  <Route path="/add-events" element={<Offer />} />
                   <Route path="/ProfileDetails" element={<ProfileDetails />} />
                   <Route
                     path="/games"
@@ -101,7 +101,7 @@ class App extends Component {
                   />
                   <Route path="/quiz" element={<Quiz />} />
                   <Route path="/admin" element={<Admin />} />
-                  <Route path="/spinner" element={<Spinner/>} />
+                  <Route path="/spinner" element={<Spinner />} />
                 </Route>
               </Routes>
             </BrowserRouter>

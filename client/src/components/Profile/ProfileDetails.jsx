@@ -6,7 +6,7 @@ import { getProfile, getAllNFT } from "../../context/Context";
 class ProfileDetails extends Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.state = {  
       profile: null,
       allNFTs: [],
     };
