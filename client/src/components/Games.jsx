@@ -4,6 +4,8 @@ import Paper from "@mui/material/Paper";
 import "../styles/games.css";
 import { useState, useEffect } from "react";
 import { updatePoints } from "../context/Context";
+import Quiz from "./Quiz/Quiz";
+import Spinner from "./Spinner/Spinner";
 
 export default function Games({setLoading}) {
   let add = 0;
@@ -56,11 +58,14 @@ export default function Games({setLoading}) {
       <br></br>
       <br></br>
       <br></br>
-      <Grid container>
+      <Grid container spacing={3} sx={{marginLeft:"5vw"}}>
+        <br></br>
         <Grid item md={12}></Grid>
         <br></br>
-        <Grid item md={4}></Grid>
-        <Grid item md={6}>
+        <Grid item md={1}>
+         
+        </Grid>
+        <Grid item lg={5} >
           <div class="book">
             <p>
               <div class="input-wrapper">
@@ -110,7 +115,19 @@ export default function Games({setLoading}) {
             </div>
           </div>
         </Grid>
-        <Grid item md={2}></Grid>
+        {/* <Grid item md={2}>
+         
+        </Grid> */}
+        <Grid item lg={5}>
+          <Spinner/>
+        </Grid>
+        {/* <Grid item md={2}>
+         
+        </Grid> */}
+        <hr></hr>
+        <Grid item lg={12}>
+          <Quiz></Quiz>
+        </Grid>
       </Grid>
       <br></br>
       <hr></hr>

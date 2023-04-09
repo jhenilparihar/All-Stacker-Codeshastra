@@ -1,5 +1,5 @@
 import React from 'react'
-import Cycle from './Cycle'
+// import Cycle from './Cycle'
 function Model() {
     return (
         <>

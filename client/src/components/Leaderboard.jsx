@@ -10,9 +10,8 @@ import Divider from "@mui/material/Divider";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
-
+import { useEffect,useState } from "react";
 import { getAllProfile } from "../context/Context";
-import { useEffect, useState } from "react";
 
 export default function Leaderboard() {
   useEffect(() => {
@@ -25,10 +24,11 @@ export default function Leaderboard() {
   }, []);
 
   const [profile, setProfile] = useState();
-
-  let a = 10;
+  
   return (
     <>
+    {profile?<>
+    
       <Grid container spacing={0} sx={{ marginTop: "5vh" }}>
         <Grid item md={4}>
           <Grid
@@ -54,7 +54,7 @@ export default function Leaderboard() {
               alignContent="center"
             >
               <img
-                src={im}
+                src={profile[1].image}
                 alt="hii"
                 style={{
                   height: "96px",
@@ -66,9 +66,9 @@ export default function Leaderboard() {
               />
             </Grid>
             <Grid item md={12}>
-              <Typography variant="h7">Profile</Typography>
+              <Typography variant="h7">{profile[1].name}</Typography>
               <br></br>
-              No. of Points:<Chip label={a}></Chip>
+              No. of Points:<Chip label={profile[1].tokens}></Chip>
             </Grid>
           </Grid>
         </Grid>
@@ -96,7 +96,7 @@ export default function Leaderboard() {
               alignContent="center"
             >
               <img
-                src={im}
+                src={profile[0].image}
                 alt="hii"
                 style={{
                   height: "96px",
@@ -108,9 +108,9 @@ export default function Leaderboard() {
               />
             </Grid>
             <Grid item md={12}>
-              <Typography variant="h7">Profile</Typography>
+              <Typography variant="h7">{profile[0].name}</Typography>
               <br></br>
-              No. of Points:<Chip label={a}></Chip>
+              No. of Points:<Chip label={profile[0].tokens}></Chip>
             </Grid>
           </Grid>
         </Grid>
@@ -138,7 +138,7 @@ export default function Leaderboard() {
               alignContent="center"
             >
               <img
-                src={im}
+                src={profile[2].image}
                 alt="hii"
                 style={{
                   height: "96px",
@@ -150,9 +150,9 @@ export default function Leaderboard() {
               />
             </Grid>
             <Grid item md={12}>
-              <Typography variant="h7">Profile</Typography>
+              <Typography variant="h7">{profile[2].name}</Typography>
               <br></br>
-              No. of Points:<Chip label={a}></Chip>
+              No. of Points:<Chip label={profile[2].tokens}></Chip>
             </Grid>
           </Grid>
         </Grid>
@@ -166,13 +166,14 @@ export default function Leaderboard() {
           <List
             sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
           >
+            
             <Divider variant="inset" component="li" />
             <ListItem alignItems="flex-start">
               <ListItemAvatar>
                 <Avatar alt="Cindy Baker" src={im} />
               </ListItemAvatar>
               <ListItemText
-                primary="Profile Name"
+                primary={"Profile Name"}
                 secondary={
                   <React.Fragment>
                     <Typography
@@ -181,7 +182,7 @@ export default function Leaderboard() {
                       variant="body2"
                       color="text.primary"
                     >
-                      No. of Points:<Chip label={a}></Chip>
+                      No. of Points:<Chip label="10"></Chip>
                     </Typography>
                   </React.Fragment>
                 }
@@ -192,6 +193,9 @@ export default function Leaderboard() {
         </Grid>
         <Grid item md={2}></Grid>
       </Grid>
+    
+    </>:<><div>NULL</div></>}
+      
     </>
   );
 }
