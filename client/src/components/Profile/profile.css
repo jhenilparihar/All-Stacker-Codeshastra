@@ -118,6 +118,7 @@ height: 250px;
 .u2 {
   width: 100%;
   height: 60%;
+
   /* background-color: antiquewhite; */
   text-align: left;
   padding: 10px;
@@ -159,7 +160,7 @@ height: 250px;
 .middle-profile {
   margin-top: 20px;
   width: 100%;
-  height: 200px;
+  height: 240px;
   padding: 20px;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 15px 0 rgba(0, 0, 0, 0.19);
 }

@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import Grid from "@mui/system/Unstable_Grid/Grid";
 import "./profile.css";
 import { getProfile, getAllNFT } from "../../context/Context";
+import { Typography } from "@mui/material";
+import Button from "@mui/material/Button";
+
 
 class ProfileDetails extends Component {
   constructor(props) {
@@ -9,6 +12,7 @@ class ProfileDetails extends Component {
     this.state = {
       profile: null,
       allNFTs: [],
+      but:false,
     };
   }
 
@@ -18,6 +22,19 @@ class ProfileDetails extends Component {
     const allNFTs = await getAllNFT();
     this.setState({ allNFTs: allNFTs });
   };
+  hey=(c)=>{
+    console.log((c));
+    console.log((this.state.profile.pointsBalance));
+    if(parseInt(this.state.profile.pointsBalance)<parseInt(c))
+    {
+      console.log(parseInt(this.state.profile.pointsBalance)<parseInt(c))
+      alert("can't buy")
+      //this.setState({but:true});
+    }
+    else{
+      console.log("bought");
+    }
+  }
 
   render() {
     console.log(this.state.allNFTs);
@@ -35,44 +52,54 @@ class ProfileDetails extends Component {
               </div>
               <hr class="hr" />
               <div className="u2">
+                <Grid container>
+                  <Grid item md={2}>
                 <h1>Tokens</h1>
                 <h2>{this.state.profile.pointsBalance}</h2>
+                </Grid>
+                <Grid item md={2}>
+                <h1>Tokens</h1>
+                <h2>{this.state.profile.pointsBalance}</h2>
+                </Grid>
+                <Grid item md={2}>
+                <h1>Tokens</h1>
+                <h2>{this.state.profile.pointsBalance}</h2>
+                </Grid>
+                </Grid>
               </div>
-              <div className="score">
-                <div className="m-token"></div>
-                <div className="m-token"></div>
-                <div className="m-token"></div>
-              </div>
+              
             </div>
-            {/* <div className="middle-profile">
-              <div className="middle-div">
-                <h1>You don't have any supporters yet</h1>
-                <h2>Share your page with your audience to get started.</h2>
-              </div>
-            </div> */}
             <div className="middle-profile">
               <Grid container>
-                <Grid item md={4}>
-                  <div className="mg">
-                    <div class="medal--gold"></div>
-                    <h3 class="req">Min. req 10$</h3>
-                    <div className="redeem"> Redeem</div>
-                  </div>
+
+                {this.state.allNFTs?<>
+                
+                
+                  <Grid item>
+                  <Grid container >
+                  {this.state.allNFTs.map((e,i)=>{
+                       
+                    return(
+                      <Grid item sx={{margin:"0 5 vw", width:"133 px"}}>
+                        <Typography variant="h4">Level:{this.state.allNFTs[i].level}</Typography>
+                        <Typography variant="h5">{this.state.allNFTs[i].name}</Typography>
+                        <Typography variant="body2">{this.state.allNFTs[i].description}</Typography>
+                        <p>Required:{this.state.allNFTs[i].tokenRequired}</p>
+                        <Button disabled={(parseInt(this.state.profile.pointsBalance)<parseInt(this.state.allNFTs[i].tokenRequired))} onClick={()=>{this.hey(this.state.allNFTs[i].tokenRequired)}}>Buy</Button>
+                      </Grid>
+
+                    );
+                    
+
+                  })}
+                  </Grid>
+
+
                 </Grid>
-                <Grid item md={4}>
-                  <div className="ms">
-                    <div class="medal--silver"></div>
-                    <h3 class="req">Min. req 10$</h3>
-                    <div className="redeem"> Redeem</div>
-                  </div>
-                </Grid>
-                <Grid item md={4}>
-                  <div className="mb">
-                    <div class="medal--bronze"></div>
-                    <h3 class="req">Min. req 10$</h3>
-                    <div className="redeem"> Redeem</div>
-                  </div>
-                </Grid>
+                
+                </>:<><div>NULL</div></>}
+
+               
               </Grid>
             </div>
             <h1 class="more">More ways to Earn</h1>
