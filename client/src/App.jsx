@@ -28,7 +28,7 @@ import Quiz from "./components/Quiz/Quiz";
 import Admin from "./components/Admin/Admin";
 import NftForm from "./components/NFT/NftForm";
 import Plans from "./components/Profile/Plans";
-import Spinner from "./components/Spinner/Spinner";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -122,7 +122,7 @@ class App extends Component {
                   />
                   <Route path="/model" element={<Model />} />
                   <Route path="/events" element={<Events />} />
-                  <Route path="/offer-form" element={<Offer />} />
+                  <Route path="/add-events" element={<Offer />} />
                   <Route path="/ProfileDetails" element={<ProfileDetails />} />
                   <Route
                     path="/games"
@@ -135,6 +135,7 @@ class App extends Component {
                   <Route path="/plan" element={<Plans/>} />
                   <Route path="/admin" element={<Admin />} />
                   <Route path="/spinner" element={<Spinner/>} />
+
                 </Route>
               </Routes>
             </BrowserRouter>
