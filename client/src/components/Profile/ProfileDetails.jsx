@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import './profile.css'
 import Grid from "@mui/system/Unstable_Grid/Grid";
-import "./profile.css";
+
 import { getProfile, getAllNFT } from "../../context/Context";
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";

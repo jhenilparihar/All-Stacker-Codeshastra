@@ -8,8 +8,10 @@ import { motion } from "framer-motion";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { getProduct } from "../context/Context";
 import { buyProduct } from "../context/Context";
+import Loading from "./Loading";
 
 const Menu = ({ setLoading }) => {
+  // const [loading,setLoading]=useState(true);
   useEffect(() => {
     const getProducts = async () => {
       const _product = await getProduct();
@@ -197,7 +199,9 @@ const Menu = ({ setLoading }) => {
         </>
       ) : (
         <>
-          <div>{console.log("hi")}</div>
+          <div>
+            <Loading/>
+          </div>
         </>
       )}
     </div>
