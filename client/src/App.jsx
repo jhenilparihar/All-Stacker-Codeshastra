@@ -123,7 +123,10 @@ class App extends Component {
                   <Route path="/model" element={<Model />} />
                   <Route path="/events" element={<Events />} />
                   <Route path="/add-events" element={<Offer />} />
-                  <Route path="/ProfileDetails" element={<ProfileDetails />} />
+                  <Route
+                    path="/ProfileDetails"
+                    element={<ProfileDetails setLoading={this.setLoading} />}
+                  />
                   <Route
                     path="/games"
                     element={<Games setLoading={this.setLoading} />}

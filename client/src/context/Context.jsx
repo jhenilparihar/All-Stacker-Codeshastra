@@ -149,6 +149,7 @@ export const addNFT = async (name, details, tokenRequired, level) => {
 export const buyNFT = async (nftId) => {
   const contract = await getContract();
   const account = await getAccountAddress();
+
   await contract.methods
     .buyNFT(nftId)
     .send({ from: account })

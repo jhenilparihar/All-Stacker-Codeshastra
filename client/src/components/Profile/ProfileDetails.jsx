@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./profile.css";
 import Grid from "@mui/system/Unstable_Grid/Grid";
 
-import { getProfile, getAllNFT } from "../../context/Context";
+import { getProfile, getAllNFT, buyNFT } from "../../context/Context";
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
@@ -24,14 +24,20 @@ class ProfileDetails extends Component {
     this.setState({ allNFTs: allNFTs });
   };
   hey = (c) => {
-    console.log(c);
+    console.log(c.nftId);
     console.log(this.state.profile.pointsBalance);
-    if (parseInt(this.state.profile.pointsBalance) < parseInt(c)) {
-      console.log(parseInt(this.state.profile.pointsBalance) < parseInt(c));
+    if (
+      parseInt(this.state.profile.pointsBalance) < parseInt(c.pointsBalance)
+    ) {
+      console.log(
+        parseInt(this.state.profile.pointsBalance) < parseInt(c.pointsBalance)
+      );
       alert("can't buy");
-      //this.setState({but:true});
+      //this.setState({ but:true});
     } else {
       console.log("bought");
+      this.props.setLoading();
+      buyNFT(c.nftId);
     }
   };
 
@@ -97,7 +103,7 @@ class ProfileDetails extends Component {
                                   parseInt(this.state.allNFTs[i].tokenRequired)
                                 }
                                 onClick={() => {
-                                  this.hey(this.state.allNFTs[i].tokenRequired);
+                                  this.hey(this.state.allNFTs[i]);
                                 }}
                               >
                                 Buy

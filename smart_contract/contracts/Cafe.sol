@@ -101,43 +101,28 @@ contract Cafe {
         isProfileSet[msg.sender] = true;
     }
 
-    function addCups(
-        uint256 _cups
-    ) public payable {
+    function addCups(uint256 _cups) public payable {
         require(msg.sender != address(0));
- address payable owner = payable(
+        address payable owner = payable(
             0x2f8Fa2250012718CB7F66a0b804ee3f367b4BD1c
         );
         owner.transfer(msg.value);
-       
 
         User storage userprofile = allUsers[msg.sender];
 
-        
-        userprofile.cups = userprofile.cups+_cups;
+        userprofile.cups = userprofile.cups + _cups;
 
         allUsers[msg.sender] = userprofile;
-        
-
-        
     }
 
-    function deduceCups(
-        uint256 _cups
-    ) external {
+    function deduceCups(uint256 _cups) external {
         require(msg.sender != address(0));
-
-       
 
         User storage userprofile = allUsers[msg.sender];
 
-        
-        userprofile.cups = userprofile.cups-_cups;
+        userprofile.cups = userprofile.cups - _cups;
 
         allUsers[msg.sender] = userprofile;
-        
-
-        
     }
 
     function buyNFT(uint256 _nftId) public {
