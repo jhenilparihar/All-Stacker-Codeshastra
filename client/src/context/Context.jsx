@@ -113,12 +113,45 @@ export const getAllProfile = async () => {
   return allProfile;
 };
 
+export const getAllNFT = async () => {
+  const contract = await getContract();
+  const count = await contract.methods.nftCounter().call();
+  let allNFT = [];
+  for (var i = 1; i <= count; i++) {
+    const nft = await contract.methods.allNFTs(i).call();
+    allNFT.push(nft);
+  }
+  return allNFT;
+};
+
 export const buyProduct = async (productId, price) => {
   const contract = await getContract();
   const account = await getAccountAddress();
   await contract.methods
     .placeOrderUsingMoney(productId, 5)
     .send({ from: account, value: price })
+    .on("confirmation", () => {
+      window.location.reload();
+    });
+};
+
+export const addNFT = async (name, details, tokenRequired, level) => {
+  const contract = await getContract();
+  const account = await getAccountAddress();
+  await contract.methods
+    .addNFT(name, details, tokenRequired, level)
+    .send({ from: account })
+    .on("confirmation", () => {
+      window.location.reload();
+    });
+};
+
+export const buyNFT = async (nftId) => {
+  const contract = await getContract();
+  const account = await getAccountAddress();
+  await contract.methods
+    .buyNFT(nftId)
+    .send({ from: account })
     .on("confirmation", () => {
       window.location.reload();
     });

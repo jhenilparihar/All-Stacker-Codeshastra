@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { addNFT } from "../../context/Context";
 
 class NftForm extends Component {
   constructor(props) {
@@ -12,6 +13,16 @@ class NftForm extends Component {
     };
   }
 
+  submitHandler = async () => {
+    this.props.setLoading();
+    await addNFT(
+      this.state.Name,
+      this.state.Description,
+      this.state.TokenRequired,
+      this.state.level
+    );
+  };
+
   render() {
     return (
       <div class="prof1">
@@ -19,31 +30,26 @@ class NftForm extends Component {
           <div className="im1"></div>
           <div className="im2"></div>
           <div className="fields">
-            
+            <h2>Mint NFT</h2>
+            <br />
             <input
-            class="common-in nft-in"
+              class="common-in nft-in"
               type="text"
-              placeholder="Name"
+              placeholder="NFT Name"
               value={this.state.Name}
               onChange={(e) => this.setState({ Name: e.target.value })}
             />
             <input
-            class="common-in nft-in"
-              type="text"
-              value={this.state.Token}
-              placeholder="Token"
-              onChange={(e) => this.setState({ Token: e.target.value })}
-            />
-            <input
-            class="common-in nft-in"
-              type="text"
+              class="common-in nft-in"
+              type="number"
+              step={1}
               value={this.state.TokenRequired}
               placeholder="Token Required"
               onChange={(e) => this.setState({ TokenRequired: e.target.value })}
             />
 
             <input
-            class="common-in nft-in"
+              class="common-in nft-in"
               type="text"
               value={this.state.level}
               placeholder="Level"
@@ -59,10 +65,11 @@ class NftForm extends Component {
               placeholder="Description"
               onChange={(e) => this.setState({ Description: e.target.value })}
             ></textarea>
-             <div className="bn-div">
-            <button class="common-sb">Create</button>
+            <div className="bn-div">
+              <button onClick={this.submitHandler} class="common-sb">
+                Create
+              </button>
             </div>
-           
           </div>
         </div>
       </div>
