@@ -43,6 +43,8 @@ class ProfileDetails extends Component {
 
   render() {
     console.log(this.state.profile);
+    
+    console.log(this.state.allNFTs);
     return (
       <div className="profile-details" style={{ marginTop: "12vh" }}>
         {this.state.profile ? (
@@ -69,10 +71,6 @@ class ProfileDetails extends Component {
                     <h1>Cups</h1>
                     <h2>&nbsp;{this.state.profile.cups}</h2>
                   </Grid>
-                  {/* <Grid item md={2}>
-                    <h1>Tokens</h1>
-                    <h2>{this.state.profile.pointsBalance}</h2>
-                  </Grid> */}
                 </Grid>
               </div>
             </div>
@@ -97,6 +95,7 @@ class ProfileDetails extends Component {
                               <p>
                                 Required:{this.state.allNFTs[i].tokenRequired}
                               </p>
+                              {/* {e.} */}
                               <Button
                                 disabled={
                                   parseInt(this.state.profile.pointsBalance) <

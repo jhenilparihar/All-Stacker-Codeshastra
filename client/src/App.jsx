@@ -137,7 +137,6 @@ class App extends Component {
                     element={<Admin sendEmail={this.sendEmail} />}
                   />
                   <Route path="/plan" element={<Plans />} />
-                  <Route path="/admin" element={<Admin />} />
                 </Route>
               </Routes>
             </BrowserRouter>

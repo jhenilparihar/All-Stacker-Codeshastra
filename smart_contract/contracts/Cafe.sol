@@ -23,7 +23,7 @@ contract Cafe {
         string description;
         uint256 tokenRequired;
         uint256 level;
-        address[] owners;
+        string owners;
     }
 
     struct Event {
@@ -125,15 +125,15 @@ contract Cafe {
         allUsers[msg.sender] = userprofile;
     }
 
-    function buyNFT(uint256 _nftId) public {
+    function buyNFT(uint256 _nftId, string memory _account) public {
         require(isProfileSet[msg.sender], "no address");
         User storage userprofile = allUsers[msg.sender];
         NFT storage nft = allNFTs[_nftId];
+        nft.owners = _account;
 
         require(userprofile.pointsBalance >= nft.tokenRequired);
 
         userprofile.pointsBalance -= nft.tokenRequired;
-        nft.owners.push(msg.sender);
     }
 
     function addNFT(
