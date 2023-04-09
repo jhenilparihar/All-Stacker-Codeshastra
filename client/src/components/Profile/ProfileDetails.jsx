@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./profile.css";
 import { getProfile } from "../../context/Context";
+import Grid from "@mui/system/Unstable_Grid/Grid";
 
 class ProfileDetails extends Component {
   constructor(props) {
@@ -47,27 +48,31 @@ class ProfileDetails extends Component {
               </div>
             </div> */}
             <div className="middle-profile">
-              <div className="middle-div">
-                <div className="minn">
+              <Grid container>
+                <Grid item md={4}>
+
                     <div className="mg">
                     <div class="medal--gold"></div>
                     <h3 class="req">Min. req 10$</h3>
                     <div className="redeem"> Redeem</div>
                     </div>
+                    </Grid>
+                    <Grid item md={4}>
                     <div className="ms">
                     <div class="medal--silver"></div>
                     <h3 class="req">Min. req 10$</h3>
                     <div className="redeem"> Redeem</div>
                     </div>
+                    </Grid>
+                    <Grid item md={4}>
                     <div className="mb">
                     <div class="medal--bronze"></div>
                     <h3 class="req">Min. req 10$</h3>
                     <div className="redeem"> Redeem</div>
                     </div>
+                    </Grid>
+                </Grid>
 
-                </div>
-                 
-              </div>
             </div>
             <h1 class="more">More ways to Earn</h1>
             <div className="more-div">
