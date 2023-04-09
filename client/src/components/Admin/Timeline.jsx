@@ -1,6 +1,6 @@
 import React from "react";
-import { Timeline, Events, TextEvent} from "@merc/react-timeline";
-import  { useState } from "react";
+import { Timeline, Events, TextEvent } from "@merc/react-timeline";
+import { useState } from "react";
 import { Card, Grid, Typography, Divider } from "@mui/material";
 import { themes, createTheme } from "@merc/react-timeline";
 
@@ -24,14 +24,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const customTheme = createTheme(themes.default, {
-  card: {
-    
-  },
+  card: {},
   date: {
-
     backgroundColor: "#6D756E",
     // borderRadius:"50%",
-
   },
   marker: {
     // borderColor: "white",
@@ -49,14 +45,13 @@ const TimeLine = () => {
   const description = [
     "The event of 1 Jan 2021 : Happy New Year",
     "The event of 15 Jan 2021 : Festival",
-   
   ];
   return (
-    <Card className={classes.card2} sx={{ height:"78vh"}}>
-      <Grid container sx={{ marginTop:"2vh" }}>
-        <Grid item className={classes.header} sx={{ marginTop:"3vh" }}>
-          <Typography gutterBottom variant="h3" component="div" mt={1} mb={1} >
-            Sponsarship Events 
+    <Card className={classes.card2} sx={{ height: "78vh" }}>
+      <Grid container sx={{ marginTop: "2vh" }}>
+        <Grid item className={classes.header} sx={{ marginTop: "3vh" }}>
+          <Typography gutterBottom variant="h3" component="div" mt={1} mb={1}>
+            Events
           </Typography>
         </Grid>
         <Divider className={classes.divider} />
@@ -71,8 +66,8 @@ const TimeLine = () => {
               <TextEvent date="28 May" text="Hacknichee" />
             </Events>
           </Timeline>
-        </Grid> 
-       </Grid>
+        </Grid>
+      </Grid>
     </Card>
   );
 };

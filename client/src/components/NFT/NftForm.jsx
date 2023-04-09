@@ -30,20 +30,15 @@ class NftForm extends Component {
           <div className="im1"></div>
           <div className="im2"></div>
           <div className="fields">
+            <h2>Mint NFT</h2>
+            <br />
             <input
               class="common-in nft-in"
               type="text"
-              placeholder="Name"
+              placeholder="NFT Name"
               value={this.state.Name}
               onChange={(e) => this.setState({ Name: e.target.value })}
             />
-            {/* <input
-              class="common-in nft-in"
-              type="text"
-              value={this.state.Token}
-              placeholder="Token"
-              onChange={(e) => this.setState({ Token: e.target.value })}
-            /> */}
             <input
               class="common-in nft-in"
               type="number"

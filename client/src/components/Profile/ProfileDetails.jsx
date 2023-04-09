@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import './profile.css'
+import { getProfile } from "../../context/Context";
 import Grid from "@mui/system/Unstable_Grid/Grid";
 import "./profile.css";
 import { getProfile, getAllNFT } from "../../context/Context";
@@ -9,7 +11,7 @@ import Button from "@mui/material/Button";
 class ProfileDetails extends Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.state = {  
       profile: null,
       allNFTs: [],
       but:false,
@@ -67,7 +69,7 @@ class ProfileDetails extends Component {
                 </Grid>
                 </Grid>
               </div>
-              
+
             </div>
             <div className="middle-profile">
               <Grid container>
