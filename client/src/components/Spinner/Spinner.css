@@ -1,13 +1,13 @@
 
 .body1{
     padding: 0;
-	margin: 0;
+	margin-top: 2rem;
 	box-sizing: border-box;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	overflow: hidden;
-	min-height: 100vh;
+	/* min-height: 100vh; */
 	
 }
 .container_spin{
@@ -21,6 +21,7 @@
 	transition: 3s all;
 }
 .container_spin div{
+	margin-top:0em;
 	height: 50%;
 	width: 200px;
 	clip-path: polygon(100% 0,50% 100%, 0 0);
