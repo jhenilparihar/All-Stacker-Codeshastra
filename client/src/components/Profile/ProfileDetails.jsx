@@ -1,22 +1,26 @@
 import React, { Component } from "react";
+import Grid from "@mui/system/Unstable_Grid/Grid";
 import "./profile.css";
-import { getProfile } from "../../context/Context";
+import { getProfile, getAllNFT } from "../../context/Context";
 
 class ProfileDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
       profile: null,
+      allNFTs: [],
     };
   }
 
   componentDidMount = async () => {
     const profile = await getProfile();
     this.setState({ profile: profile });
+    const allNFTs = await getAllNFT();
+    this.setState({ allNFTs: allNFTs });
   };
 
   render() {
-    console.log(this.state.profile);
+    console.log(this.state.allNFTs);
     return (
       <div className="profile-details" style={{ marginTop: "10vh" }}>
         {this.state.profile ? (
@@ -47,27 +51,29 @@ class ProfileDetails extends Component {
               </div>
             </div> */}
             <div className="middle-profile">
-              <div className="middle-div">
-                <div className="minn">
-                    <div className="mg">
+              <Grid container>
+                <Grid item md={4}>
+                  <div className="mg">
                     <div class="medal--gold"></div>
                     <h3 class="req">Min. req 10$</h3>
                     <div className="redeem"> Redeem</div>
-                    </div>
-                    <div className="ms">
+                  </div>
+                </Grid>
+                <Grid item md={4}>
+                  <div className="ms">
                     <div class="medal--silver"></div>
                     <h3 class="req">Min. req 10$</h3>
                     <div className="redeem"> Redeem</div>
-                    </div>
-                    <div className="mb">
+                  </div>
+                </Grid>
+                <Grid item md={4}>
+                  <div className="mb">
                     <div class="medal--bronze"></div>
                     <h3 class="req">Min. req 10$</h3>
                     <div className="redeem"> Redeem</div>
-                    </div>
-
-                </div>
-                 
-              </div>
+                  </div>
+                </Grid>
+              </Grid>
             </div>
             <h1 class="more">More ways to Earn</h1>
             <div className="more-div">

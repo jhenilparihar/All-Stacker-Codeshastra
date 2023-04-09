@@ -81,7 +81,10 @@ class App extends Component {
                     path="/add-products"
                     element={<ProductForm setLoading={this.setLoading} />}
                   />
-                  <Route path="/nftfrom" element={<NftForm />} />
+                  <Route
+                    path="/nftfrom"
+                    element={<NftForm setLoading={this.setLoading} />}
+                  />
                   <Route path="/leader" element={<Leaderboard />} />
                   <Route
                     path="/menu"
@@ -96,7 +99,7 @@ class App extends Component {
                     element={<Games setLoading={this.setLoading} />}
                   />
                   <Route path="/quiz" element={<Quiz />} />
-                  <Route path="/admin" element={<Admin/>} />
+                  <Route path="/admin" element={<Admin />} />
                 </Route>
               </Routes>
             </BrowserRouter>
