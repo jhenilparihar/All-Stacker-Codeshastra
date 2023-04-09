@@ -26,6 +26,8 @@ import Games from "./components/Games";
 import Quiz from "./components/Quiz/Quiz";
 import Admin from "./components/Admin/Admin";
 import NftForm from "./components/NFT/NftForm";
+import Plans from "./components/Profile/Plans";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -97,6 +99,7 @@ class App extends Component {
                   />
                   <Route path="/quiz" element={<Quiz />} />
                   <Route path="/admin" element={<Admin/>} />
+                  <Route path="/plan" element={<Plans/>} />
                 </Route>
               </Routes>
             </BrowserRouter>

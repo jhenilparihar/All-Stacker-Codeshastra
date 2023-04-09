@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./profile.css";
+import './profile.css'
 import { getProfile } from "../../context/Context";
 
 class ProfileDetails extends Component {
