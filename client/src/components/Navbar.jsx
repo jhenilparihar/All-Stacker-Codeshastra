@@ -14,12 +14,7 @@ function Navbar() {
   return (
     <>
       <Chat />
-      <nav
-        nav
-        className="navbar fixed-top navbar-expand-lg "
-        style={{ backgroundColor: "transparent" }}
-        id="nav_design"
-      >
+      <nav nav className="navbar fixed-top navbar-expand-lg " id="nav_design">
         <a
           class="navbar-brand"
           href="#"
