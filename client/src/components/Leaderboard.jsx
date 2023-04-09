@@ -11,10 +11,11 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 
-import { getAllProfile } from "../context/Context";
-import { useEffect, useState } from "react";
-
 export default function Leaderboard() {
+  let a = 10;
+  return (
+    <>
+      <Grid container spacing={0}>
   useEffect(() => {
     const getProfiles = async () => {
       const _profile = await getAllProfile();
@@ -169,6 +170,7 @@ export default function Leaderboard() {
           <List
             sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
           >
+            
             <Divider variant="inset" component="li" />
             <ListItem alignItems="flex-start">
               <ListItemAvatar>
