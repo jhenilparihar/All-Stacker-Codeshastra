@@ -3,6 +3,7 @@ import "./profile.css";
 import axios from "axios";
 import { Buffer } from "buffer";
 import { addProfile } from "../../context/Context";
+import { deduceCups, addCups } from "../../context/Context";
 
 class Plans extends Component {
   constructor(props) {
@@ -29,7 +30,9 @@ class Plans extends Component {
                 ignore the squirrels, you'll never catch them anyway. Buy 30
                 cups for 10$
               </p>
-              <div className="sel">Select Plan</div>
+              <div className="sel" 
+              onClick={addCups(3)}
+              >Select Plan</div>
             </div>
             <div className="plan2 plan">
               <h1>Unlimited</h1>
