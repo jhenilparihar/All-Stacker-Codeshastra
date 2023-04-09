@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import './profile.css'
+import { getProfile } from "../../context/Context";
 import Grid from "@mui/system/Unstable_Grid/Grid";
 import "./profile.css";
 import { getProfile, getAllNFT } from "../../context/Context";
@@ -39,9 +41,9 @@ class ProfileDetails extends Component {
                 <h2>{this.state.profile.pointsBalance}</h2>
               </div>
               <div className="score">
-                <div className="m-token"></div>
-                <div className="m-token"></div>
-                <div className="m-token"></div>
+                <div className="m-token"></div><span>30</span>
+                <div className="m-token"></div><span>30</span>
+                <div className="m-token"></div><span>30</span>
               </div>
             </div>
             {/* <div className="middle-profile">
