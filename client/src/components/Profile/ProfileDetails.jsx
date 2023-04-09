@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Grid from "@mui/system/Unstable_Grid/Grid";
 import "./profile.css";
 import { getProfile, getAllNFT } from "../../context/Context";
+import Grid from "@mui/system/Unstable_Grid/Grid";
 
 class ProfileDetails extends Component {
   constructor(props) {

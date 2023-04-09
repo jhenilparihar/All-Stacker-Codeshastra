@@ -120,7 +120,7 @@ export default function BasicTabs() {
         {/* </Box> */}
         <Grid sx={{ padding: { xs: 2, md: 0 } }}>
           <TabPanel value={value} index={0}>
-           Item 1
+           item1
           </TabPanel>
           <TabPanel value={value} index={1}>
             Item 2

@@ -22,7 +22,7 @@ const Home = () => {
             <iframe
               style={{ borderRadius: "12px" }}
               src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcgZcN2HVMoe?utm_source=generator&theme=0"
-              width="120%"
+              width="180%"
               height="110%"
               frameBorder="0"
               allowfullscreen=""

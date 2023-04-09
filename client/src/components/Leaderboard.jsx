@@ -10,9 +10,8 @@ import Divider from "@mui/material/Divider";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
-
+import { useEffect,useState } from "react";
 import { getAllProfile } from "../context/Context";
-import { useEffect, useState } from "react";
 
 export default function Leaderboard() {
   useEffect(() => {
@@ -26,8 +25,6 @@ export default function Leaderboard() {
 
   const [profile, setProfile] = useState();
   
-
-  let a = 10;
   return (
     <>
     {profile?<>
@@ -169,13 +166,14 @@ export default function Leaderboard() {
           <List
             sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
           >
+            
             <Divider variant="inset" component="li" />
             <ListItem alignItems="flex-start">
               <ListItemAvatar>
                 <Avatar alt="Cindy Baker" src={im} />
               </ListItemAvatar>
               <ListItemText
-                primary="Profile Name"
+                primary={"Profile Name"}
                 secondary={
                   <React.Fragment>
                     <Typography
@@ -184,7 +182,7 @@ export default function Leaderboard() {
                       variant="body2"
                       color="text.primary"
                     >
-                      No. of Points:<Chip label={a}></Chip>
+                      No. of Points:<Chip label="10"></Chip>
                     </Typography>
                   </React.Fragment>
                 }
