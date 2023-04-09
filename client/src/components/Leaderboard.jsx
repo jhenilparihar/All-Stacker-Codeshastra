@@ -12,6 +12,7 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import { useEffect,useState } from "react";
 import { getAllProfile } from "../context/Context";
+import Loading from "./Loading";
 
 export default function Leaderboard() {
   useEffect(() => {
@@ -61,14 +62,15 @@ export default function Leaderboard() {
                   width: "99px",
                   borderRadius: "48px",
                   marginTop: "3vh",
+                  marginBottom:"6vh",
                   marginLeft: "7px",
                 }}
               />
             </Grid>
             <Grid item md={12}>
-              <Typography variant="h7">{profile[1].name}</Typography>
+              <Typography variant="h7" sx={{margin:"4vh"}}>{profile[1].name}</Typography>
               <br></br>
-              No. of Points:<Chip label={profile[1].tokens}></Chip>
+              No. of Points: <Chip label={profile[1].tokens}></Chip>
             </Grid>
           </Grid>
         </Grid>
@@ -194,7 +196,7 @@ export default function Leaderboard() {
         <Grid item md={2}></Grid>
       </Grid>
     
-    </>:<><div>NULL</div></>}
+    </>:<><div><Loading/></div></>}
       
     </>
   );
