@@ -14,6 +14,7 @@ contract Cafe {
         uint256 pointsBalance;
         string profileImage;
         uint[] productId;
+        uint cups;
     }
 
     struct NFT {
@@ -22,7 +23,7 @@ contract Cafe {
         string description;
         uint256 tokenRequired;
         uint256 level;
-        address[] owners;
+        string owners;
     }
 
     struct Event {
@@ -92,6 +93,7 @@ contract Cafe {
         userprofile.email = _email;
         userprofile.profileImage = _profileImage;
         userprofile.pointsBalance = 10;
+        userprofile.cups = 0;
 
         allUsers[msg.sender] = userprofile;
         allUsersAddress[userCount] = msg.sender;
@@ -99,15 +101,39 @@ contract Cafe {
         isProfileSet[msg.sender] = true;
     }
 
-    function buyNFT(uint256 _nftId) public {
+    function addCups(uint256 _cups) public payable {
+        require(msg.sender != address(0));
+        address payable owner = payable(
+            0x2f8Fa2250012718CB7F66a0b804ee3f367b4BD1c
+        );
+        owner.transfer(msg.value);
+
+        User storage userprofile = allUsers[msg.sender];
+
+        userprofile.cups = userprofile.cups + _cups;
+
+        allUsers[msg.sender] = userprofile;
+    }
+
+    function deduceCups(uint256 _cups) external {
+        require(msg.sender != address(0));
+
+        User storage userprofile = allUsers[msg.sender];
+
+        userprofile.cups = userprofile.cups - _cups;
+
+        allUsers[msg.sender] = userprofile;
+    }
+
+    function buyNFT(uint256 _nftId, string memory _account) public {
         require(isProfileSet[msg.sender], "no address");
         User storage userprofile = allUsers[msg.sender];
         NFT storage nft = allNFTs[_nftId];
+        nft.owners = _account;
 
         require(userprofile.pointsBalance >= nft.tokenRequired);
 
         userprofile.pointsBalance -= nft.tokenRequired;
-        nft.owners.push(msg.sender);
     }
 
     function addNFT(

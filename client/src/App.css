@@ -2,6 +2,14 @@
   margin: 0;
   padding: 0;
 }
+.ajzeeb {
+  border: #00000012;
+  border-style: solid;
+  margin: 0 10px 0 10px;
+  margin-bottom: 35px;
+  padding: 20px;
+  width: 206px;
+}
 .loader {
   --dim: 3rem;
   width: var(--dim);
@@ -62,4 +70,3 @@
   95%, 100% {
     transform: scale(1) rotate(360deg);
   }
-}

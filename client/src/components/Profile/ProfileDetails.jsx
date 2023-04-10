@@ -1,20 +1,19 @@
 import React, { Component } from "react";
-import './profile.css'
-import { getProfile } from "../../context/Context";
-import Grid from "@mui/system/Unstable_Grid/Grid";
 import "./profile.css";
-import { getProfile, getAllNFT } from "../../context/Context";
+import Grid from "@mui/system/Unstable_Grid/Grid";
+
+import { getProfile, getAllNFT, buyNFT } from "../../context/Context";
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
-
+import { Link } from "react-router-dom";
 
 class ProfileDetails extends Component {
   constructor(props) {
     super(props);
-    this.state = {  
+    this.state = {
       profile: null,
       allNFTs: [],
-      but:false,
+      but: false,
     };
   }
 
@@ -24,24 +23,30 @@ class ProfileDetails extends Component {
     const allNFTs = await getAllNFT();
     this.setState({ allNFTs: allNFTs });
   };
-  hey=(c)=>{
-    console.log((c));
-    console.log((this.state.profile.pointsBalance));
-    if(parseInt(this.state.profile.pointsBalance)<parseInt(c))
-    {
-      console.log(parseInt(this.state.profile.pointsBalance)<parseInt(c))
-      alert("can't buy")
-      //this.setState({but:true});
-    }
-    else{
+  hey = (c) => {
+    console.log(c.nftId);
+    console.log(this.state.profile.pointsBalance);
+    if (
+      parseInt(this.state.profile.pointsBalance) < parseInt(c.pointsBalance)
+    ) {
+      console.log(
+        parseInt(this.state.profile.pointsBalance) < parseInt(c.pointsBalance)
+      );
+      alert("can't buy");
+      //this.setState({ but:true});
+    } else {
       console.log("bought");
+      this.props.setLoading();
+      buyNFT(c.nftId);
     }
-  }
+  };
 
   render() {
+    console.log(this.state.profile);
+    
     console.log(this.state.allNFTs);
     return (
-      <div className="profile-details" style={{ marginTop: "10vh" }}>
+      <div className="profile-details" style={{ marginTop: "12vh" }}>
         {this.state.profile ? (
           <div className="inner-profile">
             <div className="upper-profile">
@@ -50,58 +55,69 @@ class ProfileDetails extends Component {
                   <img src={this.state.profile.profileImage} alt="" />
                 </div>
                 <h1>Hi, {this.state.profile.name}</h1>
-                <div className="share-prof">Share</div>
+
+                <Link to="/plan">
+                  <div className="share-prof">Buy Plan</div>
+                </Link>
               </div>
               <hr class="hr" />
               <div className="u2">
                 <Grid container>
-                  <Grid item md={2}>
-                <h1>Tokens</h1>
-                <h2>{this.state.profile.pointsBalance}</h2>
-                </Grid>
-                <Grid item md={2}>
-                <h1>Tokens</h1>
-                <h2>{this.state.profile.pointsBalance}</h2>
-                </Grid>
-                <Grid item md={2}>
-                <h1>Tokens</h1>
-                <h2>{this.state.profile.pointsBalance}</h2>
-                </Grid>
+                  <Grid item md={4}>
+                    <h1>Tokens</h1>
+                    <h2>{this.state.profile.pointsBalance}</h2>
+                  </Grid>
+                  <Grid item md={4}>
+                    <h1>Cups</h1>
+                    <h2>&nbsp;{this.state.profile.cups}</h2>
+                  </Grid>
                 </Grid>
               </div>
-
             </div>
             <div className="middle-profile">
               <Grid container>
-
-                {this.state.allNFTs?<>
-                
-                
-                  <Grid item>
-                  <Grid container >
-                  {this.state.allNFTs.map((e,i)=>{
-                       
-                    return(
-                      <Grid item sx={{margin:"0 5 vw", width:"133 px"}}>
-                        <Typography variant="h4">Level:{this.state.allNFTs[i].level}</Typography>
-                        <Typography variant="h5">{this.state.allNFTs[i].name}</Typography>
-                        <Typography variant="body2">{this.state.allNFTs[i].description}</Typography>
-                        <p>Required:{this.state.allNFTs[i].tokenRequired}</p>
-                        <Button disabled={(parseInt(this.state.profile.pointsBalance)<parseInt(this.state.allNFTs[i].tokenRequired))} onClick={()=>{this.hey(this.state.allNFTs[i].tokenRequired)}}>Buy</Button>
+                {this.state.allNFTs ? (
+                  <>
+                    <Grid item>
+                      <Grid container>
+                        {this.state.allNFTs.map((e, i) => {
+                          return (
+                            <Grid className="ajzeeb" item={4}>
+                              <Typography variant="h4">
+                                Level:{this.state.allNFTs[i].level}
+                              </Typography>
+                              <Typography variant="h5">
+                                {this.state.allNFTs[i].name}
+                              </Typography>
+                              <Typography variant="body2">
+                                {this.state.allNFTs[i].description}
+                              </Typography>
+                              <p>
+                                Required:{this.state.allNFTs[i].tokenRequired}
+                              </p>
+                              {/* {e.} */}
+                              <Button
+                                disabled={
+                                  parseInt(this.state.profile.pointsBalance) <
+                                  parseInt(this.state.allNFTs[i].tokenRequired)
+                                }
+                                onClick={() => {
+                                  this.hey(this.state.allNFTs[i]);
+                                }}
+                              >
+                                Buy
+                              </Button>
+                            </Grid>
+                          );
+                        })}
                       </Grid>
-
-                    );
-                    
-
-                  })}
-                  </Grid>
-
-
-                </Grid>
-                
-                </>:<><div>NULL</div></>}
-
-               
+                    </Grid>
+                  </>
+                ) : (
+                  <>
+                    <div>NULL</div>
+                  </>
+                )}
               </Grid>
             </div>
             <h1 class="more">More ways to Earn</h1>

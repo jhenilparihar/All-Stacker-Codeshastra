@@ -145,12 +145,36 @@ export const addNFT = async (name, details, tokenRequired, level) => {
       window.location.reload();
     });
 };
+export const addCups = async (_cups) => {
+  const price = window.web3.utils.toWei((0.001).toString(), "ether");
+
+  const contract = await getContract();
+  const account = await getAccountAddress();
+  await contract.methods
+    .addCups(_cups)
+    .send({ from: account, value: price })
+    .on("confirmation", () => {
+      window.location.reload();
+    });
+};
+
+export const deduceCups = async (_cups) => {
+  const contract = await getContract();
+  const account = await getAccountAddress();
+  await contract.methods
+    .deduceCups(_cups)
+    .send({ from: account })
+    .on("confirmation", () => {
+      window.location.reload();
+    });
+};
 
 export const buyNFT = async (nftId) => {
   const contract = await getContract();
   const account = await getAccountAddress();
+
   await contract.methods
-    .buyNFT(nftId)
+    .buyNFT(nftId, "")
     .send({ from: account })
     .on("confirmation", () => {
       window.location.reload();

@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Admin = () => {
+const Admin = (sendEmail) => {
   const classes = useStyles();
   return (
     <>
@@ -78,5 +78,4 @@ const Admin = () => {
     </>
   );
 };
-
 export default Admin;
