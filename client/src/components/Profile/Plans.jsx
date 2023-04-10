@@ -30,9 +30,15 @@ class Plans extends Component {
                 ignore the squirrels, you'll never catch them anyway. Buy 30
                 cups for 10$
               </p>
-              <div className="sel" 
-              onClick={addCups(3)}
-              >Select Plan</div>
+              <div
+                className="sel"
+                onClick={() => {
+                  this.props.setLoading()
+                  addCups(3);
+                }}
+              >
+                Select Plan
+              </div>
             </div>
             <div className="plan2 plan">
               <h1>Unlimited</h1>

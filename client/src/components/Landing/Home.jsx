@@ -10,6 +10,7 @@ import { Typography } from "@mui/material";
 
 const Home = () => {
   localStorage.setItem("try","false")
+  localStorage.setItem("np",1)
   return (
     <div class="main1">
       <div class="head-container">

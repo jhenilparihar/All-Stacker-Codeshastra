@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./profile.css";
 import Grid from "@mui/system/Unstable_Grid/Grid";
 
-import { getProfile, getAllNFT, buyNFT } from "../../context/Context";
+import { getProfile, getAllNFT, buyNFT, getProduct } from "../../context/Context";
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
@@ -14,11 +14,22 @@ class ProfileDetails extends Component {
       profile: null,
       allNFTs: [],
       but: false,
+      count: 0,
     };
   }
 
   componentDidMount = async () => {
     const profile = await getProfile();
+    const product = await getProduct();
+    let total = 0;
+    // console.log(product)
+    product.map((item, index)=>{
+      total += parseInt(item.count);
+      console.log(total, item.count)
+    })
+
+    this.setState({count: total})
+
     this.setState({ profile: profile });
     const allNFTs = await getAllNFT();
     this.setState({ allNFTs: allNFTs });
@@ -42,9 +53,6 @@ class ProfileDetails extends Component {
   };
 
   render() {
-    console.log(this.state.profile);
-    
-    console.log(this.state.allNFTs);
     return (
       <div className="profile-details" style={{ marginTop: "12vh" }}>
         {this.state.profile ? (
@@ -70,6 +78,11 @@ class ProfileDetails extends Component {
                   <Grid item md={4}>
                     <h1>Cups</h1>
                     <h2>&nbsp;{this.state.profile.cups}</h2>
+                    
+                  </Grid>
+                  <Grid item md={4}>
+                    <h1>No. of purchases</h1>
+                    <h2>&nbsp;{localStorage.getItem("np")}</h2>
                   </Grid>
                 </Grid>
               </div>
@@ -119,33 +132,6 @@ class ProfileDetails extends Component {
                   </>
                 )}
               </Grid>
-            </div>
-            <h1 class="more">More ways to Earn</h1>
-            <div className="more-div">
-              <div className="m1">
-                <div className="in">
-                  <h1>Enable membership</h1>
-                  <h2>Monthly Membership for your biggest plans.</h2>
-                </div>
-              </div>
-              <div className="m1">
-                <div className="in">
-                  <h1>Enable membership</h1>
-                  <h2>Monthly Membership for your biggest plans.</h2>
-                </div>
-              </div>
-              <div className="m1">
-                <div className="in">
-                  <h1>Enable membership</h1>
-                  <h2>Monthly Membership for your biggest plans.</h2>
-                </div>
-              </div>
-              <div className="m1">
-                <div className="in">
-                  <h1>Enable membership</h1>
-                  <h2>Monthly Membership for your biggest plans.</h2>
-                </div>
-              </div>
             </div>
           </div>
         ) : null}

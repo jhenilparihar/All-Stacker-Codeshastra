@@ -24,6 +24,10 @@ const Menu = ({ setLoading }) => {
 
   const _buyProduct = async (id, price) => {
     setLoading();
+    let n=localStorage.getItem("np");
+    n=parseInt(n);
+    n=n+1
+    localStorage.setItem("np",n);
     await buyProduct(id, price);
   };
 
@@ -146,10 +150,12 @@ const Menu = ({ setLoading }) => {
                               fontSize: "15px",
                               float: "left",
                               marginLeft: "1vw",
+                              marginRight: "10px",
+                              textAlign: "justify",
                               marginTop: "1vh",
                             }}
                           >
-                            {product[i].productDescription}
+                            {product[i].productDescription.slice(0, 47)}{"..."}
                           </Typography>
                         </Grid>
                         <Grid item xs={6}>
